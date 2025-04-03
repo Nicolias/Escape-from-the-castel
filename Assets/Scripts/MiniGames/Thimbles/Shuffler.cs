@@ -34,6 +34,8 @@ namespace Scripts.MiniGames
             secondCup.SetParent(joint);
 
             await RotateJoint(joint);
+
+            joint.DetachChildren();
         }
 
         private async UniTask RotateJoint(Transform joint)
@@ -47,8 +49,6 @@ namespace Scripts.MiniGames
                 joint.rotation = Quaternion.RotateTowards(joint.rotation, targetRotation, rotationY / animationTime * Time.deltaTime);
                 await UniTask.Yield();
             }
-
-            joint.DetachChildren();
         }
     }
 }
