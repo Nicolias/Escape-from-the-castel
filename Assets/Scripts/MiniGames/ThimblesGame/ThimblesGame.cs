@@ -15,7 +15,7 @@ namespace Scripts.MiniGames
         [SerializeField] private int _cupsCount;
 
         private List<Cup> _cups = new List<Cup>();
-        private Shuffler _shuffler = new Shuffler(new ShuffleAlgorithm());
+        private Shuffler _shuffler = new Shuffler();
         private Cup _winnerCup;
 
         public event Action IsWinn;
@@ -24,12 +24,7 @@ namespace Scripts.MiniGames
 
         private void Start()
         {
-            foreach (Vector3 position in _table.GeneratePoints(_cupsCount))
-            {
-                Cup cup = _cupFactory.Create(position);
-                _cups.Add(cup);
-                cup.Interacted += OnCupInteracted;
-            }
+            InitCups();
         }
 
         private void OnDisable()
@@ -51,9 +46,19 @@ namespace Scripts.MiniGames
             await _shuffler.Blend(_cups.Select(cup => cup.Transform).ToList(), randomCupIndex);
         }
 
-        private void OnCupInteracted(Cup cup)
+        private void InitCups()
         {
-            cup.Open().Forget();
+            foreach (Vector3 position in _table.GeneratePoints(_cupsCount))
+            {
+                Cup cup = _cupFactory.Create(position);
+                _cups.Add(cup);
+                cup.Interacted += OnCupInteracted;
+            }
+        }
+
+        private async UniTaskVoid InteractCup(Cup cup)
+        {
+            await cup.ShowInside();
 
             if (cup == _winnerCup)
             {
@@ -63,6 +68,11 @@ namespace Scripts.MiniGames
             {
                 IsLoose?.Invoke();
             }
+        }
+
+        private void OnCupInteracted(Cup cup)
+        {
+            InteractCup(cup).Forget();
         }
     }
 }

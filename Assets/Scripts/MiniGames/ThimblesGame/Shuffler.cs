@@ -6,20 +6,22 @@ namespace Scripts.MiniGames
 {
     public class Shuffler
     {
-        private readonly IShuffleAlgorithm _shuffleAlgorithm;
-
-        public Shuffler(IShuffleAlgorithm shuffleAlgorithm)
-        {
-            _shuffleAlgorithm = shuffleAlgorithm;
-        }
-
         public async UniTask Blend(List<Transform> cups, int targetIndex)
         {
             Transform joint = new GameObject().GetComponent<Transform>();
+            int blendingsCount = 7;
+            int minCupsIndex = 0;
+            int centerCupsIndex = cups.Count / 2;
 
-            foreach ((Transform, Transform) item in _shuffleAlgorithm.GetShufflePairs(cups, targetIndex))
+            for (int i = 0; i < blendingsCount; i++)
             {
-                await SwitchCups(item.Item1, item.Item2, joint);
+                int firstCupIndex = Random.Range(minCupsIndex, centerCupsIndex + 1);
+                int secondCupIndex = Random.Range(centerCupsIndex + 1, cups.Count);
+                Transform temporaryCup = cups[firstCupIndex];
+                cups[firstCupIndex] = cups[secondCupIndex];
+                cups[secondCupIndex] = temporaryCup;
+
+                await SwitchCups(cups[firstCupIndex], cups[secondCupIndex], joint);
             }
 
             GameObject.Destroy(joint.gameObject);

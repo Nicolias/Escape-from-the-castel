@@ -9,7 +9,7 @@ public class MiniGamesEntryPoint : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            _game.StartGame().Forget();
+            _game.StartGame();
         }
     }
 }

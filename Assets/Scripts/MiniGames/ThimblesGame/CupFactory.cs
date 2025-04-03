@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.MiniGames;
+using UnityEngine;
 
 namespace Assets.Scripts.MiniGames.Factories
 {
