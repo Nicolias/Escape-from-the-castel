@@ -1,4 +1,5 @@
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 public class Cup : MonoBehaviour
@@ -7,35 +8,40 @@ public class Cup : MonoBehaviour
     [SerializeField] private Transform _cupTransform;
     [SerializeField] private Transform _spawnPointTransform;
 
+    public event Action<Cup> Interacted;
+
     public Transform Transform => _cupContainerTransform;
 
-    public IEnumerator Open()
+    public async UniTask Open()
     {
         float offset = 0.5f;
         float startPosition = _cupTransform.position.y;
         float endPosition = _cupTransform.position.y + offset;
 
-        yield return StartCoroutine(MoveVertical(endPosition));
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(MoveVertical(startPosition));
+        await MoveVertical(endPosition);
+        await UniTask.Delay(1000);
+        await MoveVertical(startPosition);
     }
 
-    public IEnumerator InsertRoutine(Transform child)
+    [ContextMenu("interact")]
+    public void Interact() => Interacted?.Invoke(this);
+
+    public async UniTask InsertItem(Transform child)
     {
         child.position = _spawnPointTransform.position;
 
-        yield return Open();
+        await Open();
 
         child.SetParent(Transform);
     }
 
-    private IEnumerator MoveVertical(float targetYPosition)
+    private async UniTask MoveVertical(float targetYPosition)
     {
         while (Mathf.Approximately(_cupTransform.position.y, targetYPosition) == false)
         {
             _cupTransform.position = Vector3.MoveTowards(_cupTransform.position, new Vector3(_cupTransform.position.x, targetYPosition, _cupTransform.position.z), Time.deltaTime);
 
-            yield return null;
+             await UniTask.Yield();
         }
     }
 }
