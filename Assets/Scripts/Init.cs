@@ -1,10 +1,13 @@
 using Asset.Servise;
-using IJunior.TypedScenes;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YG;
 
 public class Init : MonoBehaviour
 {
+    [SerializeField, Scene] private string _menu;
+
     private GameData _gameData;
 
     private void Awake()
@@ -12,6 +15,6 @@ public class Init : MonoBehaviour
         _gameData = new GameData();
         _gameData.CurrentLevelName = YG2.saves.CurrentLevelName;
 
-        Menu.Load(_gameData);
+        SceneManager.LoadScene(_menu);
     }
 }
