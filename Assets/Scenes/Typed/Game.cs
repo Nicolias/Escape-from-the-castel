@@ -10,7 +10,6 @@
 
 namespace IJunior.TypedScenes
 {
-    using Asset.Servise;
     using UnityEngine.SceneManagement;
     
     
@@ -19,12 +18,22 @@ namespace IJunior.TypedScenes
         
         private const string _sceneName = "Game";
         
-        public static void Load(GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static void Load(Asset.Servise.GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             LoadScene(_sceneName, loadSceneMode, argument);
         }
         
-        public static UnityEngine.AsyncOperation LoadAsync(GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        public static UnityEngine.AsyncOperation LoadAsync(Asset.Servise.GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        {
+            return LoadScene(_sceneName, loadSceneMode, argument);
+        }
+        
+        public static void Load(Asset.Servise.GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
+        {
+            LoadScene(_sceneName, loadSceneMode, argument);
+        }
+        
+        public static UnityEngine.AsyncOperation LoadAsync(Asset.Servise.GameData argument, LoadSceneMode loadSceneMode = LoadSceneMode.Single)
         {
             return LoadScene(_sceneName, loadSceneMode, argument);
         }
