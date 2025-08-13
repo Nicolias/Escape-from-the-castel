@@ -1,5 +1,7 @@
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Asset.GameScene
 {
@@ -11,20 +13,22 @@ namespace Asset.GameScene
 
         [SerializeField] private GameObject _canvas;
 
+        [SerializeField, Scene] private string _nextScene;
+
         private void OnEnable()
         {
             EndGame();
         }
 
-        public void Initialize()
-        {
-
-        }
-
         public void EndGame()
         {
             _canvas.SetActive(false);
-            _safeboxDoor.DORotate(_safeboxDoorOpenRotation, _openDoorDuration);
+
+            Sequence sequence = DOTween.Sequence();
+            sequence
+                .Append(_safeboxDoor.DORotate(_safeboxDoorOpenRotation, _openDoorDuration))
+                .AppendCallback(() => SceneManager.LoadScene(_nextScene));
+            sequence.Play();
         }
     }
 }

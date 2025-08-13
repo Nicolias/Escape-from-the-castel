@@ -1,14 +1,17 @@
 using Asset.Servise;
-using IJunior.TypedScenes;
+using NaughtyAttributes;
 using UnityEngine;
 using YG;
 
 namespace Asset.GameScene
 {
-    public class EntryPoint : MonoBehaviour, ISceneLoadHandler<GameData>
+    public class EntryPoint : MonoBehaviour
     {
-        public void OnSceneLoaded(GameData gameData)
+        [SerializeField, Scene] private string _currentSceneName;
+
+        public void Awake()
         {
+            YG2.saves.CurrentLevelName = _currentSceneName;
             YG2.SaveProgress();
         }
     }
