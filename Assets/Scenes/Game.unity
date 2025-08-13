@@ -179,25 +179,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1493
       objectReference: {fileID: 0}
+    - target: {fileID: 2968801667649207014, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+      propertyPath: m_Name
+      value: Safebox Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968801667649207014, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071066
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071066
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00053069
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00053069
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 58.6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442305717106246720, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5391478462412272434, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271,7 +287,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1548507146436820187, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5064432198363672615, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
     - {fileID: 1251463026233584947, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
@@ -281,6 +298,16 @@ PrefabInstance:
 --- !u!4 &176761049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8055053547889094315, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+  m_PrefabInstance: {fileID: 176761048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &176761050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4442305717106246720, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
+  m_PrefabInstance: {fileID: 176761048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &176761051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3566584032144889561, guid: cccab95ec96d8dc498fb6f8f91991b2a, type: 3}
   m_PrefabInstance: {fileID: 176761048}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &284135013
@@ -495,6 +522,7 @@ GameObject:
   - component: {fileID: 515095404}
   - component: {fileID: 515095403}
   - component: {fileID: 515095406}
+  - component: {fileID: 515095407}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -588,6 +616,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ddb8389c3e2f04489ac15d16c24a159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &515095407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515095402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef562b7cfe75acb46a4b0a98e2ca318c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _safeboxDoor: {fileID: 176761051}
+  _safeboxDoorOpenRotation: {x: -90, y: 0, z: 10}
+  _openDoorDuration: 3
+  _canvas: {fileID: 176761050}
 --- !u!1 &680810953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1161,9 +1205,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1890208339}
   - {fileID: 1653059973}
   - {fileID: 898495158}
+  - {fileID: 1890208339}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000739636
