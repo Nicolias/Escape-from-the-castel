@@ -15,11 +15,6 @@ namespace Asset.GameScene
 
         [SerializeField, Scene] private string _nextScene;
 
-        private void OnEnable()
-        {
-            EndGame();
-        }
-
         public void EndGame()
         {
             _canvas.SetActive(false);

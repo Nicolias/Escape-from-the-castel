@@ -12,30 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Initalize.unity
     guid: 956d0138134f505479269bda4ceb8176
   - enabled: 1
-    path: Assets/PluginYourGames/Modules/Authorization/Example/Scenes/Authorization.unity
-    guid: de4e0a077d630a140a5e79e3d752d10b
-  - enabled: 1
-    path: Assets/PluginYourGames/Modules/Storage/Example/Scenes/Storage.unity
-    guid: abb058d977e9e3241a3ae83e420d91ac
-  - enabled: 1
-    path: Assets/PluginYourGames/Example/Scenes/ExampleYG2.unity
-    guid: e49bf7e58fdb4db4c9df51f0ddb8f327
-  - enabled: 1
-    path: Assets/Resources/Furniture/All_models.unity
-    guid: 4c8d3783f326f3e409662f5df9a66549
-  - enabled: 1
-    path: Assets/Resources/Room/scenes/the_last_revelation.unity
-    guid: 05262337a523e5b479491e168dfab373
-  - enabled: 1
-    path: Assets/NaughtyAttributes/Samples/DemoScene/DemoScene.unity
-    guid: 07845a5477be2b149a6f1cb32b5a3a5b
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level_2.unity
-    guid: ad0a185f8387c454abc25808862f4213
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level_3.unity
-    guid: 1b40904e614d5b34abe16426804b780f
-  - enabled: 1
     path: Assets/Scenes/Levels/Level_1.unity
     guid: 5a4eed8b58974c44898311b26259abf7
   m_configObjects: {}
