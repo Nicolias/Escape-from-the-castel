@@ -1,15 +1,13 @@
-using Asset.Servise;
-using IJunior.TypedScenes;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Init : MonoBehaviour
 {
-    private GameData _gameData;
+    [SerializeField, Scene] private string _menu;
 
     private void Awake()
     {
-        _gameData = new GameData();
-
-        Menu.Load(_gameData);
+        SceneManager.LoadScene(_menu);
     }
 }

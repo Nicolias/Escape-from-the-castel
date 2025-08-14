@@ -1,23 +1,20 @@
-using Asset.Servise;
-using IJunior.TypedScenes;
+using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using YG;
 
 namespace Asset.Menu
 {
-    public class EntryPoint : MonoBehaviour, ISceneLoadHandler<GameData>
+    public class EntryPoint : MonoBehaviour
     {
-        private const string GameSaveKey = nameof(GameSaveKey);
-
         [SerializeField] private Button _newGameButton;
         [SerializeField] private Button _continueGameButton;
 
-        private GameData _gameData;
+        [SerializeField, Scene] private string _firstLevel;
 
-        public void OnSceneLoaded(GameData gameData)
+        public void Awake()
         {
-            _gameData = gameData;
             _continueGameButton.interactable = YG2.saves.IsNewGame == false;
         }
 
@@ -33,16 +30,16 @@ namespace Asset.Menu
             _newGameButton.onClick.RemoveListener(NewGame);
         }
 
-        private void LoadGame()
-        {
-            Game.Load(_gameData);
-        }
-
         private void NewGame()
         {
             YG2.SetDefaultSaves();
             YG2.saves.IsNewGame = false;
-            Game.Load(_gameData);
+            SceneManager.LoadScene(_firstLevel);
+        }
+
+        private void LoadGame()
+        {
+            SceneManager.LoadScene(YG2.saves.CurrentLevelName);
         }
     }
 }
