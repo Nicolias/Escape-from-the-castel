@@ -40,14 +40,22 @@ namespace Assets.Game.Levels.Level_1
             float angle = Vector2.SignedAngle(Vector2.right, direction);
             if (angle < 0) angle += 360;
 
-            if (angle < 22.5f || angle > 337.5f) return Direction.Right;
-            if (angle < 67.5f) return Direction.UpRight;
-            if (angle < 112.5f) return Direction.Up;
-            if (angle < 157.5f) return Direction.UpLeft;
-            if (angle < 202.5f) return Direction.Left;
-            if (angle < 247.5f) return Direction.DownLeft;
-            if (angle < 292.5f) return Direction.Down;
-            return Direction.DownRight;
+            if (angle < 11.25f || angle > 348.75f) return Direction.Right;
+            if (angle < 33.75f) return Direction.RightUpRight;
+            if (angle < 56.25f) return Direction.UpRight;
+            if (angle < 78.75f) return Direction.UpUpRight;
+            if (angle < 101.25f) return Direction.Up;
+            if (angle < 123.75f) return Direction.UpUpLeft;
+            if (angle < 146.25f) return Direction.UpLeft;
+            if (angle < 168.75f) return Direction.LeftUpLeft;
+            if (angle < 191.25f) return Direction.Left;
+            if (angle < 213.75f) return Direction.LeftDownLeft;
+            if (angle < 236.25f) return Direction.DownLeft;
+            if (angle < 258.75f) return Direction.DownDownLeft;
+            if (angle < 281.25f) return Direction.Down;
+            if (angle < 303.75f) return Direction.DownDownRight;
+            if (angle < 326.25f) return Direction.DownRight;
+            return Direction.RightDownRight;
         }
     }
 }

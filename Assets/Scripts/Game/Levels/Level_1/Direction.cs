@@ -7,8 +7,16 @@
         Left,
         Right,
         UpRight,
+        RightUpRight,
+        UpUpRight,
         UpLeft,
+        UpUpLeft,
+        LeftUpLeft,
         DownLeft,
-        DownRight
+        DownDownLeft,
+        LeftDownLeft,
+        DownRight,
+        DownDownRight,
+        RightDownRight,
     }
 }
