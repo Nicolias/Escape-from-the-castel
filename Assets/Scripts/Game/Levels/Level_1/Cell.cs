@@ -9,6 +9,8 @@ namespace Assets.Game.Levels.Level_1
         [SerializeField] private Slot _currentSlot;
         [SerializeField] private CellDirectionFinder _directionFinder;
 
+        [SerializeField] private CellCollor _collor;
+
         private void OnEnable()
         {
             _directionFinder.DirectionFound += OnDirectionFound;
@@ -21,10 +23,10 @@ namespace Assets.Game.Levels.Level_1
 
         private void OnDirectionFound(Direction direction)
         {
-            if (_currentSlot.TryGetSlot(direction, out Slot newSlot))
+            if (_currentSlot.TryGetSlot(direction, out Slot newSlot) && newSlot.IsEmpty)
             {
                 _currentSlot.UnSet();
-                newSlot.Set();
+                newSlot.Set(_collor);
                 _currentSlot = newSlot;
                 MoveTo(_currentSlot.transform.localPosition.x, _currentSlot.transform.localPosition.y);
             }

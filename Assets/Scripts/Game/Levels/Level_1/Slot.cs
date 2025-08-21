@@ -7,16 +7,20 @@ namespace Assets.Game.Levels.Level_1
     {
         [SerializedDictionary("DictionaryType", "EmptySlot"), SerializeField] private SerializedDictionary<Direction, Slot> _accesDirections = new();
         
-        public bool IsEmpty { get; private set; }
+        [field: SerializeField] public bool IsEmpty { get; private set; }
 
-        public void Set()
+        public CellCollor CurrentCollor { get; private set; }
+
+        public void Set(CellCollor cellCollor)
         {
             IsEmpty = false;
+            CurrentCollor = cellCollor;
         }
 
         public void UnSet()
         {
             IsEmpty = true;
+            CurrentCollor = CellCollor.None;
         }
 
         public bool TryGetSlot(Direction direction, out Slot slot)
