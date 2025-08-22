@@ -10,7 +10,6 @@ namespace Assets.Game.Levels.Level_1
         [SerializeField] private List<Slot> _blueSlots;
         [SerializeField] private List<Slot> _redSlots;
 
-        private int _counter;
         private bool _isGameFinish;
         private WaitForSeconds _waitForSeconds = new WaitForSeconds(2);
 
