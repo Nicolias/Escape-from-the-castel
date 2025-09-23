@@ -8,7 +8,7 @@ namespace Assets.Game.Levels
     {
         [SerializeField] private Button _endLevelButton;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         private void OnDisable()
         {
@@ -22,7 +22,7 @@ namespace Assets.Game.Levels
 
         private void CompleteLevel()
         {
-            Complet?.Invoke();
+            Complete?.Invoke();
         }
     }
 }

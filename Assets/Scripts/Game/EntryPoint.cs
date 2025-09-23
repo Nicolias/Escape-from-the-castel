@@ -20,12 +20,12 @@ namespace Asset.GameScene
 
         private void OnEnable()
         {
-            _level.Complet += _ender.EndGame;
+            _level.Complete += _ender.EndGame;
         }
 
         private void OnDisable()
         {
-            _level.Complet -= _ender.EndGame;
+            _level.Complete -= _ender.EndGame;
         }
     }
 }
