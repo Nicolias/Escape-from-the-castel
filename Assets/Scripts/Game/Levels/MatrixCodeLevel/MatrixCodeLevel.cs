@@ -1,29 +1,32 @@
 using System;
 using UnityEngine;
 
-public class MatrixCodeLevel : Level
+namespace Scripts.Levels.MatrixGame
 {
-    [SerializeField] private MatrixGame _game;
-
-    public override event Action Complet;
-
-    public override void Init()
+    public class MatrixCodeLevel : Level
     {
-        _game.Init();
-    }
+        [SerializeField] private MatrixGame _game;
 
-    private void OnEnable()
-    {
-        _game.Won += OnGameWon;
-    }
+        public override event Action Complet;
 
-    private void OnDisable()
-    {
-        _game.Won -= OnGameWon;
-    }
+        public override void Init()
+        {
+            _game.Init();
+        }
 
-    private void OnGameWon()
-    {
-        Complet?.Invoke();
+        private void OnEnable()
+        {
+            _game.Won += OnGameWon;
+        }
+
+        private void OnDisable()
+        {
+            _game.Won -= OnGameWon;
+        }
+
+        private void OnGameWon()
+        {
+            Complet?.Invoke();
+        }
     }
 }
