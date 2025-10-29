@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Initalize.unity
     guid: 956d0138134f505479269bda4ceb8176
   - enabled: 1
-    path: Assets/Scenes/Levels/FindDigits.unity
+    path: Assets/Scenes/Levels/Test.unity
     guid: 5a4eed8b58974c44898311b26259abf7
   - enabled: 1
     path: Assets/Scenes/Cryptography.unity
@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/FindColors.unity
     guid: ae9e9f570402ed442964eab0c9b0ac71
+  - enabled: 1
+    path: Assets/Scenes/Levels/FindDigits.unity
+    guid: 1956975e3b027b24eb3397e4e9659968
   m_configObjects: {}
