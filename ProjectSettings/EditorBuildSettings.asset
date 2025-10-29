@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Initalize.unity
     guid: 956d0138134f505479269bda4ceb8176
   - enabled: 1
-    path: Assets/Scenes/Levels/Test.unity
+    path: Assets/Scenes/Levels/FindDigits.unity
     guid: 5a4eed8b58974c44898311b26259abf7
   - enabled: 1
     path: Assets/Scenes/Cryptography.unity
