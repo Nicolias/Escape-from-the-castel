@@ -242,7 +242,7 @@ MonoBehaviour:
   _newGameButton: {fileID: 5831462057718892240}
   _continueGameButton: {fileID: 5831462057718892239}
   _ciphersGameButton: {fileID: 575657275}
-  _firstLevel: Level_1
+  _firstLevel: Test
   _ciphersLevel: Cryptography
 --- !u!1 &1480725743
 GameObject:
