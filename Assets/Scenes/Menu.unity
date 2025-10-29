@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &575657275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 164332885269840226, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+  m_PrefabInstance: {fileID: 5831462057718892238}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865027037
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,51 +241,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _newGameButton: {fileID: 5831462057718892240}
   _continueGameButton: {fileID: 5831462057718892239}
-  _firstLevel: Level_1
---- !u!1 &1423010860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1423010862}
-  - component: {fileID: 1423010861}
-  m_Layer: 0
-  m_Name: TypedProcessor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1423010861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423010860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4206ced5c80dc34480b82604ae7a96b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1423010862
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423010860}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  _ciphersGameButton: {fileID: 575657275}
+  _firstLevel: Test
+  _ciphersLevel: Cryptography
 --- !u!1 &1480725743
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +352,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2019706057419758265, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_Name
+      value: Crypgtography Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019706057419758265, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3577852114755173524, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
       propertyPath: _levels
       value: Menu
@@ -431,9 +408,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5517118913748933091, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517118913748933091, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517118913748933091, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517118913748933091, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6530757395821689893, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
       propertyPath: m_Name
       value: Safebox Enviroment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000667250014669470, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
+      propertyPath: m_text
+      value: 'Ciphers
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 8924030369111510853, guid: b698074c0a58cdd4f89af8d8a8525f0a, type: 3}
       propertyPath: m_Camera
@@ -473,5 +472,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 865027040}
   - {fileID: 1480725746}
-  - {fileID: 1423010862}
   - {fileID: 5831462057718892238}

@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Initalize.unity
     guid: 956d0138134f505479269bda4ceb8176
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_1.unity
+    path: Assets/Scenes/Levels/Test.unity
     guid: 5a4eed8b58974c44898311b26259abf7
+  - enabled: 1
+    path: Assets/Scenes/Cryptography.unity
+    guid: de81a5c25bc70f448a98a041f9f42f43
+  - enabled: 1
+    path: Assets/Scenes/Levels/MatrixCodeLevel.unity
+    guid: d1d0e40b04645cb4e890ff17afc517a2
   m_configObjects: {}
