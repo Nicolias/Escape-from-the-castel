@@ -26,11 +26,6 @@ namespace Cryptography
             _cipherView = cipherView;
         }
 
-        public void Reset()
-        {
-            Enable();
-        }
-
         public void Enable()
         {
             _texts = new List<string>(_locolizer.CurrentTexts);
@@ -66,6 +61,8 @@ namespace Cryptography
                 for (int i = 0; i < _ciphers.Count - 1; i++)
                     _ciphers[i].Complete -= _ciphers[i + 1].Enter;
             }
+
+            _ciphers[0].Exit();
 
             _ciphers[_ciphers.Count - 1].Complete -= Complete;
         }

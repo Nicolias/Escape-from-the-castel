@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,8 @@ namespace Cryptography.Panels
 
         [SerializeField] private EntryPoint _entryPoint;
 
-        private GameObject _gameObject;
+        [SerializeField] private GameObject _gameObject;
 
-        private void OnValidate()
-        {
-            _gameObject = gameObject;
-        }
 
         public void Enable(TimeSpan timer)
         {
@@ -29,17 +26,12 @@ namespace Cryptography.Panels
             _exitButton.onClick.AddListener(_entryPoint.Exit);
         }
 
-        public void Disable()
-        {
-            _gameObject.SetActive(false);
-            _restartButton.onClick.RemoveListener(Reset);
-            _exitButton.onClick.RemoveListener(_entryPoint.Exit);
-        }
-
         private void Reset()
         {
-            gameObject.SetActive(false);
             _entryPoint.Reset();
+            _restartButton.onClick.RemoveListener(Reset);
+            _exitButton.onClick.RemoveListener(_entryPoint.Exit);
+            _gameObject.SetActive(false);
         }
     }
 

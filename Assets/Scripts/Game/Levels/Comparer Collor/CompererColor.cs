@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Game.Levels.Level_1
 {
-    public class FiveLevel : Level
+    public class CompererColor : Level
     {
         [SerializeField] private List<Slot> _blueSlots;
         [SerializeField] private List<Slot> _redSlots;
@@ -43,6 +43,6 @@ namespace Assets.Game.Levels.Level_1
             }
 
             Complet?.Invoke();
-        }     
+        }
     }
 }

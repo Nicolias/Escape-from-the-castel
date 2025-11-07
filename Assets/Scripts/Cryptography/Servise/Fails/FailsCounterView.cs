@@ -9,8 +9,6 @@ namespace Cryptography.Servis
         [SerializeField] private FailsCounter _model;
         [SerializeField] private List<Image> _failSignals;
 
-        private int _currentFailSignalIndax;
-
         private void Awake()
         {
             Reset();
@@ -35,7 +33,8 @@ namespace Cryptography.Servis
 
         private void OnFaild()
         {
-            _failSignals[_model.CurrentFailCount-1].color = Color.red;
+            if (_model.CurrentFailCount <= _failSignals.Count)
+                _failSignals[_model.CurrentFailCount - 1].color = Color.red;
         }
     }
 }

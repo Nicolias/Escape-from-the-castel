@@ -23,7 +23,7 @@ namespace Cryptography.Ciphers
 
         public void Enter()
         {
-            _cipherView.PressedVerificationButton += PressedVerificationButton;
+            _cipherView.PressedVerificationButton += OnPressedVerificationButton;
             string encryptText = Encrypt(_text, out string key);
 
             _cipherView.UpdateUI(encryptText, key);
@@ -32,19 +32,22 @@ namespace Cryptography.Ciphers
 
         public void Exit()
         {
-            _cipherView.PressedVerificationButton -= PressedVerificationButton;
+            _cipherView.PressedVerificationButton -= OnPressedVerificationButton;
         }
 
         protected abstract string Encrypt(string text, out string key);
 
         protected abstract void Accept(Helper tip);
 
-        private bool PressedVerificationButton(string decryptText)
+        private void OnPressedVerificationButton(string decryptText)
         {
             if (decryptText == _text)
+            {
+                Exit();
                 Complete?.Invoke();
+            }
 
-            return decryptText == _text;
+            _cipherView.ApplyAnswer(decryptText == _text);
         }
     }
 }

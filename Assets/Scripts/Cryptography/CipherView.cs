@@ -13,17 +13,19 @@ namespace Cryptography
 
         [SerializeField] private Button _resultVerificationButton;
 
-        public event Func<string, bool> PressedVerificationButton;
-        public event Action<bool> IsAnswerCorrect;
+        public event Action<string> PressedVerificationButton;
+        public event Action<bool> ReceivedCorrectAnswer;
+
+        public string VerificationResult {  get; private set; }
 
         private void OnEnable()
         {
-            _resultVerificationButton.onClick.AddListener(PullDecryptText);
+            _resultVerificationButton.onClick.AddListener(PushDecryptText);
         }
 
         private void OnDisable()
         {
-            _resultVerificationButton.onClick.RemoveListener(PullDecryptText);
+            _resultVerificationButton.onClick.RemoveListener(PushDecryptText);
         }
 
         public void UpdateUI(string encyptText, string keyText)
@@ -33,9 +35,14 @@ namespace Cryptography
             _keyText.text = keyText;
         }
 
-        private void PullDecryptText()
+        public void ApplyAnswer(bool isCorrect)
         {
-            IsAnswerCorrect?.Invoke(PressedVerificationButton.Invoke(_decryptText.text.ToUpper()));
+            ReceivedCorrectAnswer?.Invoke(isCorrect);
+        }
+
+        private void PushDecryptText()
+        {
+            PressedVerificationButton?.Invoke(_decryptText.text.ToUpper());
         }
     }
 }

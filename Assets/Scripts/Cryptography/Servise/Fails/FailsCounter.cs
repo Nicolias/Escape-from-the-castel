@@ -10,7 +10,6 @@ namespace Cryptography.Servis
         private CipherView _cipherView;
         public int CurrentFailCount { get; private set; }
 
-
         public event Action Lose;
         public event Action Faild;
         public event Action Reset;
@@ -32,15 +31,15 @@ namespace Cryptography.Servis
         public void Enable()
         {
             CurrentFailCount = 0;
-            _cipherView.IsAnswerCorrect += VerificatAnswer;
+            _cipherView.ReceivedCorrectAnswer += OnReceivedCorrectAnswer;
         }
 
         public void Disable()
         {
-            _cipherView.IsAnswerCorrect -= VerificatAnswer;
+            _cipherView.ReceivedCorrectAnswer -= OnReceivedCorrectAnswer;
         }
 
-        private void VerificatAnswer(bool isAnswerCorrect)
+        private void OnReceivedCorrectAnswer(bool isAnswerCorrect)
         {
             if (isAnswerCorrect == false)
             {
@@ -48,7 +47,7 @@ namespace Cryptography.Servis
                 Faild?.Invoke();
             }
 
-            if (CurrentFailCount == MaxFailCount)
+            if (CurrentFailCount >= MaxFailCount)
                 Lose?.Invoke();
         }
     }

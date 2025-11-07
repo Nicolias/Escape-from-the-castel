@@ -11,7 +11,7 @@ namespace Cryptography.Servis.Caesar
 
         public float CharStep { get; private set; }
 
-        private void OnEnable()
+        private void Awake()
         {
             int count = _locolizer.CurrentAlphabet.Length;
 

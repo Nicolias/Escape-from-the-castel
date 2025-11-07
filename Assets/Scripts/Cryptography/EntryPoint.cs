@@ -1,6 +1,7 @@
 using Cryptography.Panels;
 using Cryptography.Servis;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,7 @@ namespace Cryptography
 
         [SerializeField] private CipherView _cipherView;
 
+        [SerializeField] private TMP_Text _canvas;
         [SerializeField, Scene] private string _menuScene;
 
         private void Awake()
@@ -32,25 +34,16 @@ namespace Cryptography
         private void OnEnable()
         {
             _tutorial.End += Enable;
-            
-            _ciphersChanger.Win += OnWin;
-            _failCounter.Lose += OnLose;
         }
 
         private void OnDisable()
         {
             _tutorial.End -= Enable;
-
-            _ciphersChanger.Disable();
-            _failCounter.Disable();
-
-            _ciphersChanger.Win -= OnWin;
-            _failCounter.Lose -= OnLose;
         }
 
         public void Reset()
         {
-            _ciphersChanger.Reset();
+            Enable();
             _failCounter.Reseting();
         }
 
@@ -63,18 +56,37 @@ namespace Cryptography
         {
             _ciphersChanger.Enable();
             _failCounter.Enable();
+
+            _ciphersChanger.Win += OnWin;
+            _failCounter.Lose += OnLose;
+        }
+
+        private void Disable()
+        {
+            _ciphersChanger.Disable();
+            _failCounter.Disable();
+
+            _ciphersChanger.Win -= OnWin;
+            _failCounter.Lose -= OnLose;
         }
 
         private void OnWin()
         {
             _winPanel.Enable(_timer.CurrentTime);
             _timer.Stop();
+            Disable();
         }
 
         private void OnLose()
         {
+            _canvas.gameObject.SetActive(true);
+            _canvas.text = "1";
             _losePanel.Enable(_timer.CurrentTime);
+            _canvas.text = "2";
             _timer.Stop();
+            _canvas.text = "3";
+            Disable();
+            _canvas.text = "4";
         }
     }
 }
