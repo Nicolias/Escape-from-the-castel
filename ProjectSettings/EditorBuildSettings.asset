@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/FindDigits.unity
     guid: 1956975e3b027b24eb3397e4e9659968
+  - enabled: 1
+    path: Assets/Scenes/Levels/Charge.unity
+    guid: 5e700117fec5e58479bdda9a66c7cf46
   m_configObjects: {}
