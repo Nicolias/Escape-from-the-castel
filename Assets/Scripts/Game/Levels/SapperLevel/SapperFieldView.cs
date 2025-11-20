@@ -51,6 +51,8 @@ namespace Scripts.Levels.SapperLevel
             }
         }
 
+        public CellView GetItem(Vector2Int gridPosition) => _cellField[gridPosition.x, gridPosition.y];
+
         public void ResetState()
         {
             foreach (CellView cell in _cells)
@@ -58,8 +60,6 @@ namespace Scripts.Levels.SapperLevel
                 cell.Init();
             }
         }
-
-        public CellView GetItem(Vector2Int gridPosition) => _cellField[gridPosition.x, gridPosition.y];
 
         private void OnCellClicked(CellView view) => CellInteracted?.Invoke(CalculateGridPosition(view.Position));
 

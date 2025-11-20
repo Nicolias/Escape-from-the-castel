@@ -9,7 +9,6 @@ namespace Scripts.Levels.SapperLevel
     {
         private List<Vector2Int> _bombMap;
         private Dictionary<Vector2Int, int> _digitsMap;
-        private int _bombCount;
 
         public IReadOnlyCollection<Vector2Int> BombMap => _bombMap;
 
@@ -19,11 +18,10 @@ namespace Scripts.Levels.SapperLevel
         {
             Height = height;
             Width = width;
-            _bombCount = bombCount;
             _bombMap = new List<Vector2Int>();
             _digitsMap = new Dictionary<Vector2Int, int>();
 
-            GenerateField();
+            GenerateField(bombCount);
         }
 
         public int Height { get; private set; }
@@ -47,7 +45,24 @@ namespace Scripts.Levels.SapperLevel
             return true;
         }
 
-        private void GenerateField()
+        public IEnumerable<Vector2Int> GetNeightbors(Vector2Int position)
+        {
+            List<Vector2Int> neightbors = new List<Vector2Int>()
+            {
+                position.GetLeft(),
+                position.GetDown(),
+                position.GetUp(),
+                position.GetRight(),
+                new Vector2Int(position.x - 1, position.y - 1),
+                new Vector2Int(position.x - 1, position.y + 1),
+                new Vector2Int(position.x + 1, position.y - 1),
+                new Vector2Int(position.x + 1, position.y + 1),
+            };
+
+            return neightbors.Where(position => ContainsPosition(position));
+        }
+
+        private void GenerateField(int bombCount)
         {
             List<Vector2Int> map = new List<Vector2Int> ();
 
@@ -59,7 +74,7 @@ namespace Scripts.Levels.SapperLevel
                 }
             }
 
-            _bombMap = GenerateBombPositions(map);
+            _bombMap = GenerateBombPositions(map, bombCount);
             _digitsMap = GenerateDigits();
         }
 
@@ -69,7 +84,7 @@ namespace Scripts.Levels.SapperLevel
 
             foreach (Vector2Int position in _bombMap)
             {
-                foreach (Vector2Int neightbor in GetNeightbors(position))
+                foreach (Vector2Int neightbor in GetNeightbors(position).Where(position => !_bombMap.Contains(position)))
                 {
                     if (digits.ContainsKey(neightbor))
                     {
@@ -85,29 +100,12 @@ namespace Scripts.Levels.SapperLevel
             return digits;
         }
 
-        private IEnumerable<Vector2Int> GetNeightbors(Vector2Int position)
-        {
-            List<Vector2Int> neightbors = new List<Vector2Int>()
-            {
-                new Vector2Int(position.x - 1, position.y - 1),
-                new Vector2Int(position.x - 1, position.y),
-                new Vector2Int(position.x - 1, position.y + 1),
-                new Vector2Int(position.x, position.y - 1),
-                new Vector2Int(position.x, position.y + 1),
-                new Vector2Int(position.x + 1, position.y - 1),
-                new Vector2Int(position.x + 1, position.y),
-                new Vector2Int(position.x + 1, position.y + 1),
-            };
-
-            return neightbors.Where(position => ContainsPosition(position) && !_bombMap.Contains(position));
-        }
-
-        private List<Vector2Int> GenerateBombPositions(List<Vector2Int> map)
+        private List<Vector2Int> GenerateBombPositions(List<Vector2Int> map, int bombCount)
         {
             int randomIndex = 0;
             List<Vector2Int> bombPositions = new List<Vector2Int>();
 
-            for (int i = 0; i < _bombCount; i++)
+            for (int i = 0; i < bombCount; i++)
             {
                 randomIndex = Random.Range(0, map.Count);
 

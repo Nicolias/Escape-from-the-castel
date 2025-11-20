@@ -7,6 +7,7 @@ namespace Scripts.Levels.SapperLevel
     public class SapperLevel : Level
     {
         [SerializeField] private SapperFieldView _fieldView;
+        [SerializeField] private BombCounter _bombCounter;
 
         private SapperField _field;
         private List<Vector2Int> _markedPositions;
@@ -29,6 +30,7 @@ namespace Scripts.Levels.SapperLevel
             _markedPositions = new List<Vector2Int>();
             _touchedPositions = new HashSet<Vector2Int>();
             _fieldView.ResetState();
+            _bombCounter.Init(_field.BombMap.Count);
 
             SetView();
         }
@@ -44,6 +46,7 @@ namespace Scripts.Levels.SapperLevel
             {
                 _markedPositions.Remove(position);
                 _fieldView.GetItem(position).SetMarkState(false);
+                _bombCounter.Add();
 
                 return;
             }
@@ -52,6 +55,7 @@ namespace Scripts.Levels.SapperLevel
             {
                 _fieldView.GetItem(position).SetMarkState(true);
                 _markedPositions.Add(position);
+                _bombCounter.Reduce();
             }
 
             CheckWin();
@@ -109,11 +113,6 @@ namespace Scripts.Levels.SapperLevel
 
         private void ClearCellsAroundPosition(Vector2Int position, HashSet<Vector2Int> touchedPositions)
         {
-            if (_field.ContainsPosition(position) == false)
-            {
-                return;
-            }
-
             if (touchedPositions.Contains(position))
             {
                 return;
@@ -127,14 +126,10 @@ namespace Scripts.Levels.SapperLevel
                 return;
             }
 
-            ClearCellsAroundPosition(position.GetUp(), touchedPositions);
-            ClearCellsAroundPosition(position.GetDown(), touchedPositions);
-            ClearCellsAroundPosition(position.GetRight(), touchedPositions);
-            ClearCellsAroundPosition(position.GetLeft(), touchedPositions);
-            ClearCellsAroundPosition(new Vector2Int(position.x - 1, position.y - 1), touchedPositions);
-            ClearCellsAroundPosition(new Vector2Int(position.x - 1, position.y + 1), touchedPositions);
-            ClearCellsAroundPosition(new Vector2Int(position.x + 1, position.y - 1), touchedPositions);
-            ClearCellsAroundPosition(new Vector2Int(position.x + 1, position.y + 1), touchedPositions);
+            foreach (Vector2Int gridPosition in _field.GetNeightbors(position))
+            {
+                ClearCellsAroundPosition(gridPosition, touchedPositions);
+            }
         }
     }
 }
