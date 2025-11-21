@@ -1,26 +1,95 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class FindColorsLevel : Level
+namespace Assets.Scripts.FindColorsGame
 {
-    [SerializeField] private FindColorsGame _game;
-
-    public override event Action Complet;
-
-    public override void Init()
+    public class FindColorsLevel : Level
     {
-        _game.Init();
+        [SerializeField] private List<ColorItem> _colorItems;
+        [SerializeField] private List<Color> _colors;
 
-        _game.Won += OnGameWon;
-    }
+        private float _interactTime = 2f;
+        private Queue<ColorItem> _itemsQueue;
 
-    private void OnDisable()
-    {
-        _game.Won -= OnGameWon;
-    }
+        public override event Action Complet;
 
-    private void OnGameWon()
-    {
-        Complet?.Invoke();
+        public override void Init()
+        {
+            _itemsQueue = new Queue<ColorItem>();
+            _colors = _colors.Concat(_colors).ToList();
+
+            _colors.Shuffle();
+            InitializeItems();
+        }
+
+        private void OnDisable()
+        {
+            foreach (ColorItem item in _colorItems)
+            {
+                item.Clicked -= OnItemClicked;
+            }
+        }
+
+        private bool CheckQueue() => _itemsQueue.First().Color == _itemsQueue.Last().Color;
+
+        private void InitializeItems()
+        {
+            for (int i = 0; i < _colors.Count; i++)
+            {
+                _colorItems[i].Init(_colors[i]);
+                _colorItems[i].Clicked += OnItemClicked;
+            }
+        }
+
+        private void OnItemClicked(ColorItem item)
+        {
+            if (_itemsQueue.Count < 2)
+            {
+                item.StartCoroutine(InteractItemRoutine(item));
+            }
+
+            if (_itemsQueue.Count == 2)
+            {
+                if (CheckQueue() == true)
+                {
+                    ColorItem firstItem = _itemsQueue.Dequeue();
+                    ColorItem secondItem = _itemsQueue.Dequeue();
+                    firstItem.Clicked -= OnItemClicked;
+                    secondItem.Clicked -= OnItemClicked;
+
+                    firstItem.Disable();
+                    secondItem.Disable();
+
+                    _colorItems.Remove(secondItem);
+                    _colorItems.Remove(firstItem);
+
+                    if (_colorItems.Count == 0)
+                    {
+                        Complet?.Invoke();
+                    }
+                }
+
+                return;
+            }
+        }
+
+        private IEnumerator InteractItemRoutine(ColorItem item)
+        {
+            WaitForSeconds wait = new WaitForSeconds(_interactTime);
+
+            _itemsQueue.Enqueue(item);
+            item.Clicked -= OnItemClicked;
+            item.On();
+
+            yield return wait;
+
+            item.Off();
+            item.Clicked += OnItemClicked;
+            _itemsQueue.Dequeue();
+        }
+
     }
 }
