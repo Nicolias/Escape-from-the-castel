@@ -9524,7 +9524,7 @@ MonoBehaviour:
   - {fileID: 1652237805}
   - {fileID: 1619974111}
   - {fileID: 1206425286}
-  _battery:
+  _batteries:
   - {fileID: 478578587}
   - {fileID: 1511245784}
   - {fileID: 1229711043}
