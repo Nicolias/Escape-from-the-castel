@@ -3264,7 +3264,7 @@ MonoBehaviour:
   _safeboxDoorOpenRotation: {x: -90, y: 0, z: 10}
   _openDoorDuration: 3
   _canvas: {fileID: 1545265433}
-  _nextScene: Menu
+  _nextScene: FourCircles
 --- !u!1 &516128222
 GameObject:
   m_ObjectHideFlags: 0

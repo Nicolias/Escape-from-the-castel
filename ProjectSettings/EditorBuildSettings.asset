@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Charge.unity
     guid: 5e700117fec5e58479bdda9a66c7cf46
+  - enabled: 1
+    path: Assets/Scenes/Levels/FourCircles.unity
+    guid: d248ff5d23ff52a4596edb3c87ffe1af
   m_configObjects: {}
