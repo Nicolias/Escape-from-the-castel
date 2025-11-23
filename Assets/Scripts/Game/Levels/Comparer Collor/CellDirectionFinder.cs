@@ -32,10 +32,10 @@ namespace Assets.Game.Levels.Level_1
 
             _isMouseDown = false;
 
-            DirectionFound?.Invoke(GetDirection8(direction));
+            DirectionFound?.Invoke(GetDirection(direction));
         }
 
-        private Direction GetDirection8(Vector2 direction)
+        private Direction GetDirection(Vector2 direction)
         {
             float angle = Vector2.SignedAngle(Vector2.right, direction);
             if (angle < 0) angle += 360;
