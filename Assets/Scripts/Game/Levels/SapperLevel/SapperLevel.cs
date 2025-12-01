@@ -77,11 +77,22 @@ namespace Scripts.Levels.SapperLevel
             else
             {
                 ClearCellsAroundPosition(position, _touchedPositions);
+
+                CheckWin();
             }
         }
 
         private void CheckWin()
         {
+            bool fieldCleared = _touchedPositions.Count + _field.BombMap.Count == _field.Width * _field.Height;
+
+            if (fieldCleared)
+            {
+                Complet?.Invoke();
+
+                return;
+            }
+
             if (_markedPositions.Count != _field.BombMap.Count)
             {
                 return;
