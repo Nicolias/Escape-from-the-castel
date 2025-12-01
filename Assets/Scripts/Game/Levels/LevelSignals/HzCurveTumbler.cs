@@ -1,7 +1,7 @@
-public class HzCurveTumbler : CurveTumbler
+namespace Assets.Scripts.LevelSignals
 {
-    protected override void ChangeCurve(Curve curve, float percent)
+    public class HzCurveTumbler : CurveTumbler
     {
-        curve.SetHz(percent);
+        protected override void ChangeCurve(Curve curve, float percent) => curve.SetHz(percent);
     }
 }
