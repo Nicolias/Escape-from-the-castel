@@ -3,6 +3,7 @@ using Cryptography.Servis;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace Cryptography
 {
@@ -69,6 +70,12 @@ namespace Cryptography
 
         private void Complete()
         {
+            if ((int)_timer.CurrentTime.TotalSeconds > YG2.saves.CiphersBestTime)
+            {
+                YG2.saves.CiphersBestTime = (int)_timer.CurrentTime.TotalSeconds;
+                YG2.SaveProgress();
+            }
+
             Win?.Invoke();
         }
 

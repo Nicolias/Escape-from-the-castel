@@ -7,7 +7,8 @@
         false,
         false
     ],
-    "idSave": 51,
-    "IsNewGame": false,
-    "CurrentLevelName": "FindDigits"
+    "idSave": 1,
+    "IsNewGame": true,
+    "CurrentLevelName": "",
+    "CiphersBestTime": 121
 }

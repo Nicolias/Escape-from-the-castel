@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace Cryptography.Panels
 {
@@ -18,10 +19,10 @@ namespace Cryptography.Panels
         [SerializeField] private GameObject _gameObject;
 
 
-        public void Enable(TimeSpan timer)
+        public void Enable()
         {
             _gameObject.SetActive(true);
-            _timerText.text = timer.ToString();
+            _timerText.text = new TimeSpan(0, 0, YG2.saves.CiphersBestTime).ToString();
             _restartButton.onClick.AddListener(Reset);
             _exitButton.onClick.AddListener(_entryPoint.Exit);
         }
@@ -37,6 +38,6 @@ namespace Cryptography.Panels
 
     public class WinPanel : Panel
     {
-        
+
     }
 }

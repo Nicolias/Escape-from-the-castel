@@ -19,8 +19,6 @@ namespace Cryptography
         [SerializeField] private LosePanel _losePanel;
 
         [SerializeField] private CipherView _cipherView;
-
-        [SerializeField] private TMP_Text _canvas;
         [SerializeField, Scene] private string _menuScene;
 
         private void Awake()
@@ -72,21 +70,16 @@ namespace Cryptography
 
         private void OnWin()
         {
-            _winPanel.Enable(_timer.CurrentTime);
+            _winPanel.Enable();
             _timer.Stop();
             Disable();
         }
 
         private void OnLose()
         {
-            _canvas.gameObject.SetActive(true);
-            _canvas.text = "1";
-            _losePanel.Enable(_timer.CurrentTime);
-            _canvas.text = "2";
+            _losePanel.Enable();
             _timer.Stop();
-            _canvas.text = "3";
             Disable();
-            _canvas.text = "4";
         }
     }
 }
