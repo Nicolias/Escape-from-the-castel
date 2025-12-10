@@ -7,8 +7,8 @@
         false,
         false
     ],
-    "idSave": 1,
-    "IsNewGame": true,
-    "CurrentLevelName": "",
-    "CiphersBestTime": 121
+    "idSave": 5,
+    "IsNewGame": false,
+    "CurrentLevelName": "Level 1",
+    "CiphersBestTime": 0
 }
