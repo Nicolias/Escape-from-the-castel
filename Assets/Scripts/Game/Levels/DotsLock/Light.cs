@@ -3,29 +3,21 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.DotsLevel
 {
+    [RequireComponent(typeof(RectTransform))]
     [RequireComponent(typeof(Image))]
     public class Light : MonoBehaviour
     {
         private Image _image;
 
-        public virtual void Init(Color color)
+        [field: SerializeField] public Color Color { get; private set; }
+
+        public Vector2 AnchoredPosition { get; private set; }
+
+        public void Init()
         {
             _image = GetComponent<Image>();
-            _image.color = color;
+            _image.color = Color;
+            AnchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         }
-    }
-
-    [RequireComponent (typeof(RectTransform))]
-    public class TransformableLight : Light
-    {
-        private RectTransform _rectTransform;
-
-        public override void Init(Color color)
-        {
-            base.Init(color);
-            _rectTransform = GetComponent<RectTransform>();
-        }
-
-
     }
 }
