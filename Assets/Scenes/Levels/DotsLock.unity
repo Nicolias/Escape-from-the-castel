@@ -721,7 +721,6 @@ MonoBehaviour:
   _image: {fileID: 310123302}
   <Color>k__BackingField: {r: 1, g: 0, b: 0, a: 1}
   <IsActive>k__BackingField: 1
-  _lockColor: {fileID: 310123302}
   _shutter: {fileID: 390581078}
 --- !u!1 &336079254
 GameObject:
@@ -814,7 +813,6 @@ MonoBehaviour:
   _image: {fileID: 336079256}
   <Color>k__BackingField: {r: 0, g: 0.03137255, b: 1, a: 1}
   <IsActive>k__BackingField: 0
-  _lockColor: {fileID: 336079256}
   _shutter: {fileID: 1243996114}
 --- !u!1 &381583883
 GameObject:
@@ -866,7 +864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4716981, g: 0.46950716, b: 0.41607332, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1613,7 +1611,6 @@ MonoBehaviour:
   _image: {fileID: 587839371}
   <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   <IsActive>k__BackingField: 0
-  _lockColor: {fileID: 587839371}
   _shutter: {fileID: 295504220}
 --- !u!1 &680810953
 GameObject:
@@ -1812,7 +1809,6 @@ MonoBehaviour:
   _image: {fileID: 719997050}
   <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
   <IsActive>k__BackingField: 1
-  _lockColor: {fileID: 719997050}
   _shutter: {fileID: 1587749000}
 --- !u!1 &737717898
 GameObject:
@@ -2423,7 +2419,6 @@ MonoBehaviour:
   _image: {fileID: 1000848065}
   <Color>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   <IsActive>k__BackingField: 0
-  _lockColor: {fileID: 1000848065}
   _shutter: {fileID: 1966408006}
 --- !u!1 &1122163400
 GameObject:
@@ -3039,7 +3034,6 @@ MonoBehaviour:
   _image: {fileID: 1365128127}
   <Color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
   <IsActive>k__BackingField: 1
-  _lockColor: {fileID: 1365128127}
   _shutter: {fileID: 749228493}
 --- !u!1 &1427445484
 GameObject:
@@ -3610,7 +3604,6 @@ MonoBehaviour:
   _image: {fileID: 1586263761}
   <Color>k__BackingField: {r: 1, g: 0.85490197, b: 0, a: 1}
   <IsActive>k__BackingField: 0
-  _lockColor: {fileID: 1586263761}
   _shutter: {fileID: 1427445485}
 --- !u!1 &1587748999
 GameObject:
@@ -4039,7 +4032,6 @@ MonoBehaviour:
   _image: {fileID: 1826163433}
   <Color>k__BackingField: {r: 0, g: 1, b: 0, a: 1}
   <IsActive>k__BackingField: 0
-  _lockColor: {fileID: 1826163433}
   _shutter: {fileID: 1344253151}
 --- !u!1 &1845238534
 GameObject:
