@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.DotsLevel
 {
@@ -7,6 +8,8 @@ namespace Assets.Scripts.DotsLevel
     {
         [SerializeField] private LightCircle _lightCircle;
         [SerializeField] private LockCircle _lockCircle;
+        [SerializeField] private Button _rotateButton;
+        [SerializeField] private Button _switchButton;
 
         public override event Action Complet;
 
@@ -15,6 +18,8 @@ namespace Assets.Scripts.DotsLevel
             _lockCircle.Init();
             _lightCircle.Init();
             _lightCircle.Changed += OnCircleChanged;
+            _rotateButton.onClick.AddListener(() => _lightCircle.Rotate());
+            _switchButton.onClick.AddListener(() => _lightCircle.SwitchBottomItems());
 
             OnCircleChanged();
         }
@@ -22,7 +27,7 @@ namespace Assets.Scripts.DotsLevel
         private void OnCircleChanged() =>_lockCircle.StartCoroutine(_lockCircle.ValidateItems(_lightCircle, () => Complet?.Invoke()));
 
         private void Update()
-        {
+        {/*
             if (_lightCircle.IsMoving)
             {
                 return;
@@ -38,7 +43,7 @@ namespace Assets.Scripts.DotsLevel
             {
                 _lightCircle.SwitchBottomItems();
                 return;
-            }
+            }*/
         }
     }
 }
