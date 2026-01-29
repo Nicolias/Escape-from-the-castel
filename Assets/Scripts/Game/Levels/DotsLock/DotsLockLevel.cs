@@ -24,26 +24,12 @@ namespace Assets.Scripts.DotsLevel
             OnCircleChanged();
         }
 
-        private void OnCircleChanged() =>_lockCircle.StartCoroutine(_lockCircle.ValidateItems(_lightCircle, () => Complet?.Invoke()));
-
-        private void Update()
-        {/*
-            if (_lightCircle.IsMoving)
-            {
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _lightCircle.Rotate();
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                _lightCircle.SwitchBottomItems();
-                return;
-            }*/
+        private void OnDisable()
+        {
+            _rotateButton.onClick.RemoveAllListeners();
+            _switchButton.onClick.RemoveAllListeners();
         }
+
+        private void OnCircleChanged() =>_lockCircle.StartCoroutine(_lockCircle.ValidateItems(_lightCircle, () => Complet?.Invoke()));
     }
 }

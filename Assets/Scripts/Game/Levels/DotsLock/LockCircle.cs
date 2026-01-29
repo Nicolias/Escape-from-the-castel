@@ -8,7 +8,30 @@ namespace Assets.Scripts.DotsLevel
     {
         private Coroutine _animationCoroutine;
 
-        public bool ValidateItem(int index, CirclePoint circlePoint)
+        public IEnumerator ValidateItems(LightCircle items, Action onValidAction)
+        {
+            bool isValidState = true;
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (ValidateItem(i, items[i]) == false)
+                {
+                    isValidState = false;
+                }
+            }
+
+            while (_animationCoroutine != null)
+            {
+                yield return null;
+            }
+
+            if (isValidState)
+            {
+                onValidAction?.Invoke();
+            }
+        }
+
+        private bool ValidateItem(int index, CirclePoint circlePoint)
         {
             LockItem item = this[index];
 
@@ -35,29 +58,6 @@ namespace Assets.Scripts.DotsLevel
                 StartCoroutine(AnimateShutter(item.CloseShutter()));
 
                 return false;
-            }
-        }
-
-        public IEnumerator ValidateItems(LightCircle items, Action onValidAction)
-        {
-            bool isValidState = true;
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (ValidateItem(i, items[i]) == false)
-                {
-                    isValidState = false;
-                }
-            }
-
-            while (_animationCoroutine != null)
-            {
-                yield return null;
-            }
-
-            if (isValidState)
-            {
-                onValidAction?.Invoke();
             }
         }
 

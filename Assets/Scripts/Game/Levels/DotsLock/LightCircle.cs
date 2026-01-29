@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.DotsLevel
@@ -12,11 +11,9 @@ namespace Assets.Scripts.DotsLevel
 
         public event Action Changed;
 
-        public bool IsMoving => _rotateCoroutine != null;
-
         public void Rotate()
         {
-            if (IsMoving == false)
+            if (_rotateCoroutine == null)
             {
                 StartCoroutine(AnimateRoutine(RotateRoutine()));
             }
@@ -24,7 +21,7 @@ namespace Assets.Scripts.DotsLevel
 
         public void SwitchBottomItems()
         {
-            if (IsMoving == false)
+            if (_rotateCoroutine == null)
             {
                 StartCoroutine(AnimateRoutine(SwitchItemsRoutine()));
             }
@@ -38,16 +35,18 @@ namespace Assets.Scripts.DotsLevel
 
             this[5].Move(fiveIndexItemPosition);
             this[4].Move(fourIndexItemPosition);
+
             yield return this[3].Move(thirdIndexitemPosition);
         }
 
         private IEnumerator RotateRoutine()
         {
             Quaternion targetRotation = RectTransform.rotation * Quaternion.Euler(0f, 0f, 45f);
+            float rotation = 90f;
 
             while (RectTransform.rotation != targetRotation)
             {
-                RectTransform.rotation = Quaternion.RotateTowards(RectTransform.rotation, targetRotation, Time.deltaTime * 45f * 2f);
+                RectTransform.rotation = Quaternion.RotateTowards(RectTransform.rotation, targetRotation, Time.deltaTime * rotation);
 
                 yield return null;
             }
