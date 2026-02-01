@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class FindDigitsGame : MonoBehaviour
@@ -95,6 +92,11 @@ public class FindDigitsGame : MonoBehaviour
 
     private void OnNumpadClicked(NumpadItem item)
     {
+        if (_playerCode.Contains(item.Digit))
+        {
+            return;
+        }
+
         _playerCode.Add(item.Digit);
         _mainRaw.SetDigit(item.Digit);
 
