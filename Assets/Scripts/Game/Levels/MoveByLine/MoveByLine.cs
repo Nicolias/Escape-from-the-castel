@@ -15,7 +15,7 @@ namespace MoveByLine
         private bool _isGameFinish;
         private WaitForSeconds _waitForSeconds = new WaitForSeconds(2);
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -48,7 +48,7 @@ namespace MoveByLine
                     _isGameFinish = false;
             }
 
-            Complet?.Invoke();
+            Complete?.Invoke();
         }
     }
 }

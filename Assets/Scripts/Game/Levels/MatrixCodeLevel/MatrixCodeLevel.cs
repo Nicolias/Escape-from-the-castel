@@ -7,7 +7,7 @@ namespace Scripts.Levels.MatrixGame
     {
         [SerializeField] private MatrixGame _game;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -26,7 +26,7 @@ namespace Scripts.Levels.MatrixGame
 
         private void OnGameWon()
         {
-            Complet?.Invoke();
+            Complete?.Invoke();
         }
     }
 }

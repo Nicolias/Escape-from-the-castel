@@ -11,7 +11,7 @@ namespace Assets.Scripts.DotsLevel
         [SerializeField] private Button _rotateButton;
         [SerializeField] private Button _switchButton;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -30,6 +30,6 @@ namespace Assets.Scripts.DotsLevel
             _switchButton.onClick.RemoveAllListeners();
         }
 
-        private void OnCircleChanged() =>_lockCircle.StartCoroutine(_lockCircle.ValidateItems(_lightCircle, () => Complet?.Invoke()));
+        private void OnCircleChanged() =>_lockCircle.StartCoroutine(_lockCircle.ValidateItems(_lightCircle, () => Complete?.Invoke()));
     }
 }

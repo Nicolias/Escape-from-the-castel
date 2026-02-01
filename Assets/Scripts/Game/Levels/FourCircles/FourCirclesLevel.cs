@@ -16,7 +16,7 @@ namespace Scripts.Levels.FourCircles
         private Vector2 _leftTopPoint;
         private Coroutine _rotateCoroutine;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -69,7 +69,7 @@ namespace Scripts.Levels.FourCircles
                 }
             }
 
-            Complet?.Invoke();
+            Complete?.Invoke();
         }
 
         private CircleItem[] GetNearestItems(Circle circle)

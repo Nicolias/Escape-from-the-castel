@@ -15,7 +15,7 @@ namespace Charge
 
         private Coroutine _checkComplete;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -63,7 +63,7 @@ namespace Charge
                 }
             }
 
-            Complet?.Invoke();
+            Complete?.Invoke();
         }
     }
 }

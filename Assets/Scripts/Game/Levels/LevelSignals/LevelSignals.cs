@@ -12,7 +12,7 @@ namespace Assets.Scripts.LevelSignals
         [SerializeField] private float _hzToleranceValue;
         [SerializeField] private float _amplitudeToleranceValue;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -36,7 +36,7 @@ namespace Assets.Scripts.LevelSignals
             {
                 if (Mathf.Abs(_targetCurve.Amplitude - _playerCurve.Amplitude) <= _amplitudeToleranceValue)
                 {
-                    Complet?.Invoke();
+                    Complete?.Invoke();
                 }
             }
         }

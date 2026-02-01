@@ -1317,7 +1317,7 @@ Transform:
   m_GameObject: {fileID: 515095402}
   serializedVersion: 2
   m_LocalRotation: {x: 0.040567733, y: 0, z: 0, w: 0.9991768}
-  m_LocalPosition: {x: -0.13, y: 2.78, z: -12.12}
+  m_LocalPosition: {x: -0.04, y: 2.78, z: -14.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2755,6 +2755,14 @@ PrefabInstance:
     - target: {fileID: 1308659420972441364, guid: 55594910555c6d74e84f3906c235609c, type: 3}
       propertyPath: m_Name
       value: Menu Panel Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481633148569964896, guid: 55594910555c6d74e84f3906c235609c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.099975586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481633148569964896, guid: 55594910555c6d74e84f3906c235609c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 8846577486170159419, guid: 55594910555c6d74e84f3906c235609c, type: 3}
       propertyPath: m_Pivot.x

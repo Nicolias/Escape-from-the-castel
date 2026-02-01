@@ -14,7 +14,7 @@ namespace Assets.Scripts.FindColorsGame
         private float _interactTime = 2f;
         private Queue<ColorItem> _itemsQueue;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -68,7 +68,7 @@ namespace Assets.Scripts.FindColorsGame
 
                     if (_colorItems.Count == 0)
                     {
-                        Complet?.Invoke();
+                        Complete?.Invoke();
                     }
                 }
 

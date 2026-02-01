@@ -5,7 +5,7 @@ public class FindDigitsLevel : Level
 {
     [SerializeField] private FindDigitsGame _game;
 
-    public override event Action Complet;
+    public override event Action Complete;
 
     public override void Init()
     {
@@ -15,7 +15,7 @@ public class FindDigitsLevel : Level
 
     private void GameWon()
     {
-        Complet?.Invoke();
+        Complete?.Invoke();
     }
 
     private void OnDisable()
