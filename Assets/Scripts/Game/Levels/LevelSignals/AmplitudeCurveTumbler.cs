@@ -1,7 +1,7 @@
-public class AmplitudeCurveTumbler : CurveTumbler
+namespace Assets.Scripts.LevelSignals
 {
-    protected override void ChangeCurve(Curve curve, float percent)
+    public class AmplitudeCurveTumbler : CurveTumbler
     {
-        curve.SetAmplitude(percent);
+        protected override void ChangeCurve(Curve curve, float percent) => curve.SetAmplitude(percent);
     }
 }

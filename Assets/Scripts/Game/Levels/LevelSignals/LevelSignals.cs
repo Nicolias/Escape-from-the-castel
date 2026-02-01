@@ -1,43 +1,43 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class LevelSignals : Level
+namespace Assets.Scripts.LevelSignals
 {
-    [SerializeField] private Curve _targetCurve;
-    [SerializeField] private Curve _playerCurve;
-    [SerializeField] private HzCurveTumbler _hzTumbler;
-    [SerializeField] private AmplitudeCurveTumbler _amplitudeTumbler;
-    [SerializeField] private float _hzToleranceValue;
-    [SerializeField] private float _amplitudeToleranceValue;
-
-    public override event Action Complet;
-
-    public override void Init()
+    public class LevelSignals : Level
     {
-        _targetCurve.Init();
-        _hzTumbler.Init(_playerCurve);
-        _amplitudeTumbler.Init(_playerCurve);
+        [SerializeField] private Curve _targetCurve;
+        [SerializeField] private Curve _playerCurve;
+        [SerializeField] private HzCurveTumbler _hzTumbler;
+        [SerializeField] private AmplitudeCurveTumbler _amplitudeTumbler;
+        [SerializeField] private float _hzToleranceValue;
+        [SerializeField] private float _amplitudeToleranceValue;
 
-        _hzTumbler.CurveChanged += CheckComplete;
-        _amplitudeTumbler.CurveChanged += CheckComplete;
-    }
+        public override event Action Complet;
 
-    private void OnDisable()
-    {
-        _hzTumbler.CurveChanged -= CheckComplete;
-        _amplitudeTumbler.CurveChanged -= CheckComplete;
-    }
-
-    private void CheckComplete()
-    {
-        if (Mathf.Abs(_targetCurve.Hz - _playerCurve.Hz) <= _hzToleranceValue)
+        public override void Init()
         {
-            if (Mathf.Abs(_targetCurve.Amplitude - _playerCurve.Amplitude) <= _amplitudeToleranceValue)
+            _targetCurve.Init();
+            _hzTumbler.Init(_playerCurve);
+            _amplitudeTumbler.Init(_playerCurve);
+
+            _hzTumbler.CurveChanged += CheckComplete;
+            _amplitudeTumbler.CurveChanged += CheckComplete;
+        }
+
+        private void OnDisable()
+        {
+            _hzTumbler.CurveChanged -= CheckComplete;
+            _amplitudeTumbler.CurveChanged -= CheckComplete;
+        }
+
+        private void CheckComplete()
+        {
+            if (Mathf.Abs(_targetCurve.Hz - _playerCurve.Hz) <= _hzToleranceValue)
             {
-                Complet?.Invoke();
+                if (Mathf.Abs(_targetCurve.Amplitude - _playerCurve.Amplitude) <= _amplitudeToleranceValue)
+                {
+                    Complet?.Invoke();
+                }
             }
         }
     }
