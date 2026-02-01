@@ -211,9 +211,13 @@ PrefabInstance:
       value: Red Cell (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Color.b
       value: 0.24629755
@@ -413,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -512,7 +516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -607,7 +611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -707,7 +711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1129,7 +1133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1443,7 +1447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1518,7 +1522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1655,9 +1659,13 @@ PrefabInstance:
       value: Red Cell
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Color.b
       value: 0.24705882
@@ -1932,7 +1940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2389,7 +2397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2513,9 +2521,13 @@ PrefabInstance:
       value: Blue Cell (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Color.b
       value: 0.40392157
@@ -3000,9 +3012,13 @@ PrefabInstance:
       value: Red Cell (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Color.b
       value: 0.24705882
@@ -3563,7 +3579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3962,7 +3978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4061,7 +4077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4156,7 +4172,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4210,9 +4226,13 @@ PrefabInstance:
       value: Blue Cell (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Color.b
       value: 0.40392157
@@ -4411,7 +4431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4700,9 +4720,13 @@ PrefabInstance:
       value: Blue Cell
       objectReference: {fileID: 0}
     - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871944243005715496, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 497412b369c8a824389186e8c6e817e9, type: 3}
+      objectReference: {fileID: 21300000, guid: c426b035919094016adb99e1349aa315, type: 3}
     - target: {fileID: 7014723741981360329, guid: 288e9a3feeb511349a9ec77392f748c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
