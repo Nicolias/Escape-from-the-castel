@@ -129,7 +129,14 @@ namespace Scripts.Levels.SapperLevel
                 return;
             }
 
-            _fieldView.GetItem(position).Show();
+            CellView cell = _fieldView.GetItem(position);
+
+            if (cell.IsMarked)
+            {
+                return;
+            }
+
+            cell.Show();
             touchedPositions.Add(position);
 
             if (_field.DigitsMap.ContainsKey(position))

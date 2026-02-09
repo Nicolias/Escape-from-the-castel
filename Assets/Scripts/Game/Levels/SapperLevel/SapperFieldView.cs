@@ -43,11 +43,11 @@ namespace Scripts.Levels.SapperLevel
 
         private void OnValidate()
         {
-            string errorMassae = "Неверное количество ячеек!!!";
+            string errorMassage = "Неверное количество ячеек!!!";
 
             if (_cells.Count != FieldHeight * FieldWidth)
             {
-                throw new Exception(errorMassae);
+                throw new Exception(errorMassage);
             }
         }
 

@@ -22,6 +22,8 @@ namespace Scripts.Levels.SapperLevel
 
         public event Action<CellView> Pressed;
 
+        public bool IsMarked => _mark.enabled;
+
         public Vector2 Position => _rectTransform.anchoredPosition;
 
         public void Init()
@@ -34,13 +36,6 @@ namespace Scripts.Levels.SapperLevel
             Hide();
         }
 
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            _isPressed = true;
-
-            StartCoroutine(GetInputRoutine());
-        }
-
         public void OnPointerUp(PointerEventData eventData) => _isPressed = false;
 
         public void SetMarkState(bool enable) => _mark.enabled = enable;
@@ -48,6 +43,13 @@ namespace Scripts.Levels.SapperLevel
         public void Show() => _span.enabled = false;
 
         public void Hide() => _span.enabled = true;
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _isPressed = true;
+
+            StartCoroutine(GetInputRoutine());
+        }
 
         public void SetBombState()
         {
