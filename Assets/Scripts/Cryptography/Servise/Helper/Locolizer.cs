@@ -16,16 +16,12 @@ namespace Cryptography.Servis
         [SerializeField] private List<string> _ruTexts;
         [SerializeField] private List<string> _trkTexts;
 
-        [SerializeField] private Languages _selectLanguage;
-
         public string CurrentAlphabet { get; private set; }
         public IEnumerable<string> CurrentTexts { get; private set; }
         public Languages CurrentLanguage { get; private set; }
 
         public void Initialize()
         {
-            _leanLocalization.SetCurrentLanguage(_selectLanguage.ToString());
-
             switch (_leanLocalization.CurrentLanguage)
             {
                 case nameof(Languages.English):
