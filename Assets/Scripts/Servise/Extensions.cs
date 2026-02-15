@@ -14,4 +14,9 @@ public static class Extensions
             colors[i] = temp;
         }
     }
+
+    public static Vector2Int GetRight(this Vector2Int position) => new Vector2Int(position.x + 1, position.y);
+    public static Vector2Int GetLeft(this Vector2Int position) => new Vector2Int(position.x - 1, position.y);
+    public static Vector2Int GetUp(this Vector2Int position) => new Vector2Int(position.x, position.y + 1);
+    public static Vector2Int GetDown(this Vector2Int position) => new Vector2Int(position.x, position.y - 1);
 }
