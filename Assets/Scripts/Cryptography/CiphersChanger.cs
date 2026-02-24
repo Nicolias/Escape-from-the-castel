@@ -9,22 +9,34 @@ namespace Cryptography
 {
     public class CiphersChanger : MonoBehaviour
     {
-        [SerializeField] private Timer _timer;
-        [SerializeField] private Helper _helper;
-        [SerializeField] private Locolizer _locolizer;
+        private Timer _timer;
+        private Locolizer _locolizer;
 
+        private Helper _helper;
         private CipherView _cipherView;
         private List<AbstractCipher> _ciphers;
         private List<string> _texts;
 
         public event Action Win;
 
-        public void Initialize(CipherView cipherView)
+        public void Initialize(CipherView cipherView, Helper helper, Timer timer, Locolizer locolizer)
         {
             if (cipherView == null)
                 throw new NullReferenceException();  
 
+            if(helper == null) 
+                throw new NullReferenceException();
+
+            if(timer == null)
+                throw new NullReferenceException();
+
+            if(locolizer == null)
+                throw new NullReferenceException();
+
             _cipherView = cipherView;
+            _helper = helper;
+            _timer = timer;
+            _locolizer = locolizer;
         }
 
         public void Enable()

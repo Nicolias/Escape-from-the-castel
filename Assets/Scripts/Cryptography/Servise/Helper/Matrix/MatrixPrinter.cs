@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Cryptography.Servis
 {
-    public abstract class MatrixPrinter : MonoBehaviour
+    public abstract class MatrixPrinter : Initializable
     {
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;
         [SerializeField] private RectTransform _canvas;
@@ -14,7 +14,7 @@ namespace Cryptography.Servis
 
         [SerializeField] private Locolizer _locolizer;
 
-        private void Awake()
+        public override void Initialize()
         {
             _gridLayoutGroup.constraintCount = _locolizer.CurrentAlphabet.Length;
             PrintMatrix(BuildMatrix(_locolizer.CurrentAlphabet));

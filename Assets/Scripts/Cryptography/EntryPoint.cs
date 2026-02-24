@@ -1,7 +1,7 @@
 using Cryptography.Panels;
 using Cryptography.Servis;
 using NaughtyAttributes;
-using TMPro;
+using Scripts.Servises;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,9 +14,12 @@ namespace Cryptography
         [SerializeField] private FailsCounter _failCounter;
         [SerializeField] private Tutorial _tutorial;
         [SerializeField] private Locolizer _alphabet;
+        [SerializeField] private Helper _helper;
 
         [SerializeField] private WinPanel _winPanel;
         [SerializeField] private LosePanel _losePanel;
+
+        [SerializeField] private Locolization _locolization;
 
         [SerializeField] private CipherView _cipherView;
         [SerializeField, Scene] private string _menuScene;
@@ -25,8 +28,10 @@ namespace Cryptography
         {
             _failCounter.Initialize(_cipherView);
             _alphabet.Initialize();
-            _ciphersChanger.Initialize(_cipherView);
+            _helper.Initialize();
             _timer.Initialize();
+            _ciphersChanger.Initialize(_cipherView, _helper, _timer, _alphabet);
+            _locolization.Initialize();
         }
 
         private void OnEnable()

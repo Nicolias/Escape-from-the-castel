@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -25,6 +24,9 @@ namespace Cryptography.Panels
             _timerText.text = new TimeSpan(0, 0, YG2.saves.CiphersBestTime).ToString();
             _restartButton.onClick.AddListener(Reset);
             _exitButton.onClick.AddListener(_entryPoint.Exit);
+
+            if (YG2.saves.CiphersBestTime > 0)
+                YG2.SetLBTimeConvert("TechnoNameLB1", YG2.saves.CiphersBestTime);
         }
 
         private void Reset()

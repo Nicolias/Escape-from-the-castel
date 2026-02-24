@@ -58,6 +58,9 @@ public class MenuPanel : MonoBehaviour
 
     private void ValidateMusicSprite()
     {
+        if (_musicManager == null)
+            return;
+
         _musicToggleButton.image.sprite =  _musicManager.IsEnable ? _enableMusicSprite : _disableMusicSprite;
     }
 }

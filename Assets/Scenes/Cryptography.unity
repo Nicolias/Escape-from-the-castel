@@ -818,6 +818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _template: {fileID: 4315335455420116464, guid: 95b66eb31d639094ebe5b62937903633, type: 3}
+  _parent: {fileID: 128422109}
 --- !u!1 &151696179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _template: {fileID: 4315335455420116464, guid: 95b66eb31d639094ebe5b62937903633, type: 3}
+  _parent: {fileID: 184019729}
 --- !u!114 &184019734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,7 +2209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u0432\u043E\u0434"
+  m_text: Enter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e098393af9edab469e946357b5d179e, type: 2}
   m_sharedMaterial: {fileID: -1395115416457440828, guid: 3e098393af9edab469e946357b5d179e, type: 2}
@@ -2604,7 +2606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15400001, y: 0.15276471}
   m_AnchorMax: {x: 0.85545456, y: 0.859}
-  m_AnchoredPosition: {x: -0.40298462, y: -0.2689972}
+  m_AnchoredPosition: {x: -0.40296936, y: -0.2689991}
   m_SizeDelta: {x: 0.9089966, y: -0.14900017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460477217
@@ -3784,7 +3786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041A\u043B\u044E\u0447:"
+  m_text: 'The key:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e098393af9edab469e946357b5d179e, type: 2}
   m_sharedMaterial: {fileID: -1395115416457440828, guid: 3e098393af9edab469e946357b5d179e, type: 2}
@@ -4199,7 +4201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15400001, y: 0.15276471}
   m_AnchorMax: {x: 0.85545456, y: 0.859}
-  m_AnchoredPosition: {x: -0.40298462, y: -0.2689972}
+  m_AnchoredPosition: {x: -0.40296936, y: -0.2689991}
   m_SizeDelta: {x: 0.9089966, y: -0.14900017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758140044
@@ -4324,6 +4326,7 @@ GameObject:
   - component: {fileID: 775900421}
   - component: {fileID: 775900420}
   - component: {fileID: 775900419}
+  - component: {fileID: 775900422}
   m_Layer: 5
   m_Name: Viginior Tip Window
   m_TagString: Untagged
@@ -4390,6 +4393,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &775900422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775900418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8756584894d4b21418631fbfbdfe3318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _self: {fileID: 775900418}
+  _initializableObjects:
+  - {fileID: 184019734}
 --- !u!1 &811301965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4521,6 +4539,7 @@ GameObject:
   - component: {fileID: 829860494}
   - component: {fileID: 829860493}
   - component: {fileID: 829860495}
+  - component: {fileID: 829860496}
   m_Layer: 0
   m_Name: LeanLocalization
   m_TagString: Untagged
@@ -4540,7 +4559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: Russian
   saveLoad: 1
@@ -4607,7 +4626,19 @@ MonoBehaviour:
   - "BULGUS\xDCRDEN\u0130M"
   - "SIRLIKE\u015E\u0130T\u0130KL\u0130K"
   - 'KAPALIAYDINLIK '
-  _selectLanguage: 1
+--- !u!114 &829860496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829860492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94858e48b6a395b449be7ff86d58e4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leanLocalization: {fileID: 829860493}
 --- !u!1 &836108406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5800,31 +5831,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0428\u0438\u0444\u0440 \u0410\u0442\u0431\u0430\u0448 \u2014 \u044D\u0442\u043E
-    \u043E\u0434\u043D\u043E\u0441\u0442\u043E\u0440\u043E\u043D\u043D\u044F\u044F
-    \u0441\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u043C\u0435\u043D\u044B,
-    \u0433\u0434\u0435 \u043A\u0430\u0436\u0434\u0430\u044F \u0431\u0443\u043A\u0432\u0430
-    \u0430\u043B\u0444\u0430\u0432\u0438\u0442\u0430 \u0437\u0430\u043C\u0435\u043D\u044F\u0435\u0442\u0441\u044F
-    \u043D\u0430 \u043F\u0440\u043E\u0442\u0438\u0432\u043E\u043F\u043E\u043B\u043E\u0436\u043D\u0443\u044E:
-    \xAB\u0410\xBB \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0441\u044F \xAB\u042F\xBB 
-    \u0438 \u0442\u0430\u043A \u0434\u0430\u043B\u0435\u0435; \u0432 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0435
-    \u043F\u0440\u0438 \u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u0438\u0438
-    \u0438\u0441\u0445\u043E\u0434\u043D\u044B\u0439 \u0442\u0435\u043A\u0441\u0442
-    \u0438\u043D\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u0442\u0441\u044F
-    \u0437\u0435\u0440\u043A\u0430\u043B\u044C\u043D\u043E \u043E\u0442\u043D\u043E\u0441\u0438\u0442\u0435\u043B\u044C\u043D\u043E
-    \u0441\u0435\u0440\u0435\u0434\u0438\u043D\u044B \u0430\u043B\u0444\u0430\u0432\u0438\u0442\u0430.
-    \u0412 \u043E\u0442\u043B\u0438\u0447\u0438\u0435 \u043E\u0442 \u0441\u0434\u0432\u0438\u0433\u043E\u0432\u044B\u0445
-    \u0448\u0438\u0444\u0440\u043E\u0432, \u0410\u0442\u0431\u0430\u0448 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u0442
-    \u0444\u0438\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0435
-    \u043F\u0440\u0430\u0432\u0438\u043B\u043E \u0437\u0430\u043C\u0435\u043D\u044B
-    \u0431\u0435\u0437 \u043A\u043B\u044E\u0447\u0430, \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0435\u0442
-    \u0435\u0433\u043E \u043F\u0440\u043E\u0441\u0442\u044B\u043C \u0434\u043B\u044F
-    \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F, \u043D\u043E \u043E\u0434\u043D\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E
-    \u043A\u0440\u0430\u0439\u043D\u0435 \u0443\u044F\u0437\u0432\u0438\u043C\u044B\u043C
-    \u043A \u0434\u0435\u0448\u0438\u0444\u0440\u043E\u0432\u043A\u0435, \u0442\u0430\u043A
-    \u043A\u0430\u043A \u043A\u0430\u0436\u0434\u0430\u044F \u0431\u0443\u043A\u0432\u0430
-    \u0438\u043C\u0435\u0435\u0442 \u0443\u043D\u0438\u043A\u0430\u043B\u044C\u043D\u044B\u0439
-    \u044D\u043A\u0432\u0438\u0432\u0430\u043B\u0435\u043D\u0442."
+  m_text: 'The Atbash cipher is a one-way substitution system where each letter of
+    the alphabet is replaced by its opposite: "A" becomes "Z", and so on; as a result,
+    the original text is mirrored relative to the middle of the alphabet when encrypted.
+    Unlike shift ciphers, Atbash uses a fixed substitution rule without a key, making
+    it easy to implement but highly vulnerable to decryption, as each letter has
+    a unique equivalent.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e098393af9edab469e946357b5d179e, type: 2}
   m_sharedMaterial: {fileID: -1395115416457440828, guid: 3e098393af9edab469e946357b5d179e, type: 2}
@@ -5851,7 +5863,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.4
+  m_fontSize: 44.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6343,8 +6355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0435
-    \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u0435:"
+  m_text: 'The encoded message:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e098393af9edab469e946357b5d179e, type: 2}
   m_sharedMaterial: {fileID: -1395115416457440828, guid: 3e098393af9edab469e946357b5d179e, type: 2}
@@ -6371,7 +6382,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.3
+  m_fontSize: 50.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6735,6 +6746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _template: {fileID: 4315335455420116464, guid: 95b66eb31d639094ebe5b62937903633, type: 3}
+  _parent: {fileID: 1314778112}
 --- !u!114 &1314778117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7568,6 +7580,7 @@ GameObject:
   - component: {fileID: 1584721940}
   - component: {fileID: 1584721939}
   - component: {fileID: 1584721938}
+  - component: {fileID: 1584721941}
   m_Layer: 5
   m_Name: Atbash Tip Window
   m_TagString: Untagged
@@ -7634,6 +7647,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1584721941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584721937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8756584894d4b21418631fbfbdfe3318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _self: {fileID: 1584721937}
+  _initializableObjects:
+  - {fileID: 1314778117}
 --- !u!1 &1614183575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9029,9 +9057,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dded528c9817004dbc02782314abe6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 495701284}
-  _helper: {fileID: 1870039602}
-  _locolizer: {fileID: 829860495}
 --- !u!114 &1870039602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9046,9 +9071,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openButton: {fileID: 811301967}
   _closeButton: {fileID: 46835039}
-  _caeserTipWindow: {fileID: 1905885379}
-  _atbashTipWindow: {fileID: 1584721937}
-  _viginiorTipWindow: {fileID: 775900418}
+  _caeserTipWindow: {fileID: 1905885383}
+  _atbashTipWindow: {fileID: 1584721941}
+  _viginiorTipWindow: {fileID: 775900422}
 --- !u!114 &1870039603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9066,8 +9091,10 @@ MonoBehaviour:
   _failCounter: {fileID: 675387706}
   _tutorial: {fileID: 648936912}
   _alphabet: {fileID: 829860495}
+  _helper: {fileID: 1870039602}
   _winPanel: {fileID: 836108410}
   _losePanel: {fileID: 151696181}
+  _locolization: {fileID: 829860496}
   _cipherView: {fileID: 152399437}
   _menuScene: Menu
 --- !u!1 &1877441274
@@ -9191,6 +9218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _template: {fileID: 4315335455420116464, guid: 95b66eb31d639094ebe5b62937903633, type: 3}
+  _parent: {fileID: 1877441275}
 --- !u!1 &1905885379
 GameObject:
   m_ObjectHideFlags: 0
@@ -9202,6 +9230,7 @@ GameObject:
   - component: {fileID: 1905885380}
   - component: {fileID: 1905885382}
   - component: {fileID: 1905885381}
+  - component: {fileID: 1905885383}
   m_Layer: 5
   m_Name: Caeser Tip Window
   m_TagString: Untagged
@@ -9271,6 +9300,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905885379}
   m_CullTransparentMesh: 1
+--- !u!114 &1905885383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905885379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8756584894d4b21418631fbfbdfe3318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _self: {fileID: 1905885379}
+  _initializableObjects:
+  - {fileID: 128422110}
+  - {fileID: 1877441277}
 --- !u!4 &1928557754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1527055450098318974, guid: adef00e2be323654ca5fa825a2cc3c72, type: 3}
@@ -9577,20 +9622,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0428\u0438\u0444\u0440 \u0426\u0435\u0437\u0430\u0440\u044F \u0440\u0435\u0430\u043B\u0438\u0437\u043E\u0432\u0430\u043D
-    \u043A\u0430\u043A \u0434\u0432\u0430 \u0432\u0437\u0430\u0438\u043C\u043E\u0441\u0432\u044F\u0437\u0430\u043D\u043D\u044B\u0445
-    \u043A\u043E\u043B\u044C\u0446\u0430: \u0432\u043D\u0435\u0448\u043D\u0435\u0435
-    \u0444\u0438\u043A\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0435
-    \u0430\u043B\u0444\u0430\u0432\u0438\u0442\u043D\u043E\u0435 \u043A\u043E\u043B\u044C\u0446\u043E
-    \u0438 \u0432\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0435\u0435, \u043A\u043E\u0442\u043E\u0440\u043E\u0435
-    \u043C\u043E\u0436\u043D\u043E \u043F\u043E\u0432\u0435\u0440\u043D\u0443\u0442\u044C
-    \u043F\u043E \u0447\u0430\u0441\u043E\u0432\u043E\u0439 \u0441\u0442\u0440\u0435\u043B\u043A\u0435
-    \u043D\u0430 \u0437\u0430\u0434\u0430\u043D\u043D\u044B\u0439 \u043A\u043B\u044E\u0447
-    k. \u041F\u0440\u0438 \u0434\u0435\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u0438\u0438
-    \u043A\u0430\u0436\u0434\u0430\u044F \u0431\u0443\u043A\u0432\u0430 \u0432\u043D\u0435\u0448\u043D\u0435\u0433\u043E
-    \u043A\u043E\u043B\u044C\u0446\u0430 \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u0435\u0442
-    \u0437\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0439
-    \u0431\u0443\u043A\u0432\u0435."
+  m_text: 'The Caesar cipher is implemented as two interconnected rings: an outer
+    fixed alphabet ring and an inner ring that can be rotated clockwise by a given
+    key k. When deciphering, each letter of the outer ring corresponds to an encrypted
+    letter.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e098393af9edab469e946357b5d179e, type: 2}
   m_sharedMaterial: {fileID: -1395115416457440828, guid: 3e098393af9edab469e946357b5d179e, type: 2}
@@ -9617,7 +9652,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58
+  m_fontSize: 55.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

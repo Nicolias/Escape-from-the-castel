@@ -1,6 +1,7 @@
 ﻿using Lean.Localization;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 namespace Cryptography.Servis
 {
@@ -9,6 +10,10 @@ namespace Cryptography.Servis
         private const string RuAlpabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
         private const string EnAlpabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private const string TrkAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇĞİÖŞÜ";
+
+        private const string EnglishCode = "en";
+        private const string TurkishCode = "tr";
+        private const string RussianCode = "ru";
 
         [SerializeField] private LeanLocalization _leanLocalization;
 
@@ -22,15 +27,15 @@ namespace Cryptography.Servis
 
         public void Initialize()
         {
-            switch (_leanLocalization.CurrentLanguage)
+            switch (YG2.envir.language)
             {
-                case nameof(Languages.English):
+                case EnglishCode:
                     SelectEnglish();
                     break;
-                case nameof(Languages.Russian):
+                case RussianCode:
                     SelectRussian();
                     break;
-                case nameof(Languages.Turkish):
+                case TurkishCode:
                     SelectTurkish();
                     break;
                 default:

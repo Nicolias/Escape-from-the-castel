@@ -1408,7 +1408,7 @@ MonoBehaviour:
   _safeboxDoorOpenRotation: {x: -90, y: 0, z: 10}
   _openDoorDuration: 3
   _canvas: {fileID: 1545265433}
-  _nextScene: FindDigits
+  _nextScene: Sapper
 --- !u!1 &543260869
 GameObject:
   m_ObjectHideFlags: 0

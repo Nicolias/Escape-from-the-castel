@@ -1,4 +1,6 @@
 using NaughtyAttributes;
+using Scripts.Servises;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,9 +17,12 @@ namespace Asset.Menu
         [SerializeField, Scene] private string _firstLevel;
         [SerializeField, Scene] private string _ciphersLevel;
 
+        [SerializeField] private Locolization _locolization;
+
         public void Awake()
         {
             _continueGameButton.interactable = YG2.saves.IsNewGame == false;
+            _locolization.Initialize();
         }
 
         private void OnEnable()

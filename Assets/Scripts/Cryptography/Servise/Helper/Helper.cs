@@ -9,11 +9,11 @@ namespace Cryptography.Servis
         [SerializeField] private Button _openButton;
         [SerializeField] private Button _closeButton;
 
-        [SerializeField] private GameObject _caeserTipWindow;
-        [SerializeField] private GameObject _atbashTipWindow;
-        [SerializeField] private GameObject _viginiorTipWindow;
+        [SerializeField] private TipWindow _caeserTipWindow;
+        [SerializeField] private TipWindow _atbashTipWindow;
+        [SerializeField] private TipWindow _viginiorTipWindow;
 
-        private GameObject _currentTipWindow;
+        private TipWindow _currentTipWindow;
 
         private void OnEnable()
         {
@@ -25,6 +25,13 @@ namespace Cryptography.Servis
         {
             _openButton.onClick.RemoveListener(Open);
             _closeButton.onClick.RemoveListener(Close);
+        }
+
+        public void Initialize()
+        {
+            _caeserTipWindow.Initialize();
+            _atbashTipWindow.Initialize();
+            _viginiorTipWindow.Initialize();
         }
 
         public void Visit(CaesarCipher caesarCipher)
@@ -44,13 +51,13 @@ namespace Cryptography.Servis
 
         private void Open()
         {
-            _currentTipWindow.SetActive(true);
+            _currentTipWindow.Open();
             _closeButton.gameObject.SetActive(true);
         }
 
         private void Close()
         {
-            _currentTipWindow.SetActive(false);
+            _currentTipWindow.Close();
             _closeButton.gameObject.SetActive(false);
         }
     }

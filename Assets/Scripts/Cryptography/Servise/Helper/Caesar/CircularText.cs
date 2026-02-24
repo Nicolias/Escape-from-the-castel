@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Cryptography.Servis.Caesar
 {
-    public class CircularText : MonoBehaviour
+    public class CircularText : Initializable
     {
         [SerializeField] private float _radius = 250f;
 
@@ -11,7 +11,7 @@ namespace Cryptography.Servis.Caesar
 
         public float CharStep { get; private set; }
 
-        private void Awake()
+        public override void Initialize()
         {
             int count = _locolizer.CurrentAlphabet.Length;
 

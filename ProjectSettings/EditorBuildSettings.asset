@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: b0094f22491aff74ebde73359e001276
-  - enabled: 1
     path: Assets/Scenes/Initalize.unity
     guid: 956d0138134f505479269bda4ceb8176
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: b0094f22491aff74ebde73359e001276
   - enabled: 1
     path: Assets/Scenes/Levels/Test.unity
     guid: 5a4eed8b58974c44898311b26259abf7
@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/DotsLock.unity
     guid: 412c50cc69d739440bd82fd3cc12bd20
+  - enabled: 1
+    path: Assets/Scenes/Levels/Sapper.unity
+    guid: 9d9c0e2dca5373049838968c818d426a
   m_configObjects: {}

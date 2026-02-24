@@ -6,12 +6,7 @@ namespace Cryptography.Servis
     public class CharFactory : MonoBehaviour
     {
         [SerializeField] private TMP_Text _template;
-        private Transform _parent;
-
-        private void OnValidate()
-        {
-            _parent = transform;
-        }
+        [SerializeField] private Transform _parent;
 
         public void Create(Vector3 position, Quaternion rotation, string text)
         {
