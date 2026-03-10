@@ -11,7 +11,6 @@ namespace Assets.Scripts.FindColorsGame
         [SerializeField] private List<ColorItem> _colorItems;
         [SerializeField] private List<Color> _colors;
 
-        private float _interactTime = 2f;
         private Queue<ColorItem> _itemsQueue;
 
         public override event Action Complet;
@@ -33,7 +32,7 @@ namespace Assets.Scripts.FindColorsGame
             }
         }
 
-        private bool CheckQueue() => _itemsQueue.First().Color == _itemsQueue.Last().Color;
+        private bool CheckQueue() => _itemsQueue.First().CurrentColor == _itemsQueue.Last().CurrentColor;
 
         private void InitializeItems()
         {
@@ -46,17 +45,23 @@ namespace Assets.Scripts.FindColorsGame
 
         private void OnItemClicked(ColorItem item)
         {
-            if (_itemsQueue.Count < 2)
+            int maxQueueCount = 2;
+
+            if (_itemsQueue.Count < maxQueueCount)
             {
                 item.StartCoroutine(InteractItemRoutine(item));
             }
 
-            if (_itemsQueue.Count == 2)
+            if (_itemsQueue.Count == maxQueueCount)
             {
                 if (CheckQueue() == true)
                 {
                     ColorItem firstItem = _itemsQueue.Dequeue();
                     ColorItem secondItem = _itemsQueue.Dequeue();
+
+                    firstItem.StopAllCoroutines();
+                    secondItem.StopAllCoroutines();
+
                     firstItem.Clicked -= OnItemClicked;
                     secondItem.Clicked -= OnItemClicked;
 
@@ -71,25 +76,18 @@ namespace Assets.Scripts.FindColorsGame
                         Complet?.Invoke();
                     }
                 }
-
-                return;
             }
         }
 
         private IEnumerator InteractItemRoutine(ColorItem item)
         {
-            WaitForSeconds wait = new WaitForSeconds(_interactTime);
-
             _itemsQueue.Enqueue(item);
             item.Clicked -= OnItemClicked;
-            item.On();
 
-            yield return wait;
+            yield return item.StartCoroutine(item.LightUp());
 
-            item.Off();
             item.Clicked += OnItemClicked;
             _itemsQueue.Dequeue();
         }
-
     }
 }
