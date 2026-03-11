@@ -21,6 +21,8 @@ namespace Assets.Scripts.LevelSignals
             _slider.onValueChanged.AddListener(SetCurve);
         }
 
+        private void OnDisable() => _slider.onValueChanged.RemoveListener(SetCurve);
+
         protected abstract void ChangeCurve(Curve curve, float percent);
 
         private void SetCurve(float percent)

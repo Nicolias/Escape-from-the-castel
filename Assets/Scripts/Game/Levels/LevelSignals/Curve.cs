@@ -34,14 +34,14 @@ namespace Assets.Scripts.LevelSignals
 
         public void SetAmplitude(float percent)
         {
-            Amplitude = _minAmplitude + (_maxAmplitude - _minAmplitude) * percent;
+            Amplitude = _minAmplitude + (_maxAmplitude - _minAmplitude) * Mathf.Clamp01(percent);
 
             UpdateState();
         }
 
         public void SetHz(float percent)
         {
-            Hz = _minHz + (_maxHz - _minHz) * percent;
+            Hz = _minHz + (_maxHz - _minHz) * Mathf.Clamp01(percent);
 
             UpdateState();
         }
