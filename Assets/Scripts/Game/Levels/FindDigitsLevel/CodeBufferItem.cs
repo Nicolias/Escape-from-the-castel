@@ -1,22 +1,24 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-public class CodeBufferItem : CodeDigit
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    private Color _color;
-
-    public void SetState(int digit, Color color)
+    public class CodeBufferItem : CodeDigit
     {
-        _color = color;
+        private Color _color;
 
-        SetDigit(digit);
-    }
+        public void SetState(int digit, Color color)
+        {
+            _color = color;
 
-    protected override void SetText(TMP_Text text, int digit)
-    {
-        base.SetText(text, digit);
+            SetDigit(digit);
+        }
 
-        text.color = _color;
+        protected override void SetText(TMP_Text text, int digit)
+        {
+            base.SetText(text, digit);
+
+            text.color = _color;
+        }
     }
 }

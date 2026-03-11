@@ -1,25 +1,26 @@
-using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CodeItem : CodeDigit
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [SerializeField] private Image _selectedMark;
-
-    public void Select() => _selectedMark.enabled = true;
-
-    public override void ResetState()
+    public class CodeItem : CodeDigit
     {
-        base.ResetState();
+        [SerializeField] private Image _selectedMark;
 
-        _selectedMark.enabled = false;
-    }
+        public void Select() => _selectedMark.enabled = true;
 
-    public void SetState(int digit)
-    {
-        SetDigit(digit);
+        public override void ResetState()
+        {
+            base.ResetState();
 
-        _selectedMark.enabled = false;
+            _selectedMark.enabled = false;
+        }
+
+        public void SetState(int digit)
+        {
+            SetDigit(digit);
+
+            _selectedMark.enabled = false;
+        }
     }
 }

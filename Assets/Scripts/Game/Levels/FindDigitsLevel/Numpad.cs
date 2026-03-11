@@ -2,27 +2,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Numpad : MonoBehaviour
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [SerializeField] private List<NumpadItem> _buttons;
-
-    public event Action<NumpadItem> ButtonClicked;
-
-    public void Init()
+    public class Numpad : MonoBehaviour
     {
-        foreach (NumpadItem item in _buttons)
-        {
-            item.Clicked += OnItemClicked;
-        }
-    }
+        [SerializeField] private List<NumpadItem> _buttons;
 
-    private void OnDisable()
-    {
-        foreach (NumpadItem item in _buttons)
-        {
-            item.Clicked -= OnItemClicked;
-        }
-    }
+        public event Action<NumpadItem> ButtonClicked;
 
-    private void OnItemClicked(NumpadItem item) => ButtonClicked?.Invoke(item);
+        public void Init()
+        {
+            foreach (NumpadItem item in _buttons)
+            {
+                item.Clicked += OnItemClicked;
+            }
+        }
+
+        private void OnDisable()
+        {
+            foreach (NumpadItem item in _buttons)
+            {
+                item.Clicked -= OnItemClicked;
+            }
+        }
+
+        private void OnItemClicked(NumpadItem item) => ButtonClicked?.Invoke(item);
+    }
 }

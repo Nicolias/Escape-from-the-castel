@@ -1,30 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DigitRaw<T> : MonoBehaviour where T : CodeDigit
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [SerializeField] private List<T> _codeItems;
-
-    private Queue<T> _selectedQueue;
-
-    protected T CurrentItem => _selectedQueue.Peek();
-
-    protected int ItemsCount => _selectedQueue.Count;
-
-    public virtual void Init()
+    public abstract class DigitRaw<T> : MonoBehaviour where T : CodeDigit
     {
-        ResetState();
-    }
+        [SerializeField] private List<T> _codeItems;
 
-    public virtual void ResetState()
-    {
-        _selectedQueue = new Queue<T>(_codeItems);
+        private Queue<T> _selectedQueue;
 
-        foreach (T item in _codeItems)
+        protected T CurrentItem => _selectedQueue.Peek();
+
+        protected int ItemsCount => _selectedQueue.Count;
+
+        public virtual void Init()
         {
-            item.ResetState();
+            ResetState();
         }
-    }
 
-    protected T GetItem() => _selectedQueue.Dequeue();
+        public virtual void ResetState()
+        {
+            _selectedQueue = new Queue<T>(_codeItems);
+
+            foreach (T item in _codeItems)
+            {
+                item.ResetState();
+            }
+        }
+
+        protected T GetItem() => _selectedQueue.Dequeue();
+    }
 }

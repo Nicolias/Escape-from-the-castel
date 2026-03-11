@@ -1,29 +1,32 @@
 using System;
 using UnityEngine;
 
-public class CodeBuffer : DigitRaw<CodeBufferItem>
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    public override void Init()
+    public class CodeBuffer : DigitRaw<CodeBufferItem>
     {
-        base.Init();
-
-        gameObject.SetActive(true);
-    }
-
-    public override void ResetState()
-    {
-        base.ResetState();
-
-        gameObject.SetActive(false);
-    }
-
-    public void SetDigit(int digit, Color color)
-    {
-        if (ItemsCount == 0)
+        public override void Init()
         {
-            throw new InvalidOperationException();
+            base.Init();
+
+            gameObject.SetActive(true);
         }
 
-        GetItem().SetState(digit, color);
+        public override void ResetState()
+        {
+            base.ResetState();
+
+            gameObject.SetActive(false);
+        }
+
+        public void SetDigit(int digit, Color color)
+        {
+            if (ItemsCount == 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            GetItem().SetState(digit, color);
+        }
     }
 }

@@ -2,11 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NumpadItem : MonoBehaviour, IPointerClickHandler
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [field: SerializeField] public int Digit { get; private set; }
+    public class NumpadItem : MonoBehaviour, IPointerClickHandler
+    {
+        [field: SerializeField] public int Digit { get; private set; }
 
-    public event Action<NumpadItem> Clicked;
+        public event Action<NumpadItem> Clicked;
 
-    public void OnPointerClick(PointerEventData eventData) => Clicked?.Invoke(this);
+        public void OnPointerClick(PointerEventData eventData) => Clicked?.Invoke(this);
+    }
 }

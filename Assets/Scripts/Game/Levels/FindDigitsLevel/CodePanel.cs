@@ -2,37 +2,40 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CodePanel : DigitRaw<CodeItem>
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [SerializeField] private List<Operator> _operators;
-
-    public void SetOperators(List<Operators> operators)
+    public class CodePanel : DigitRaw<CodeItem>
     {
-        for (int i = 0; i < _operators.Count; i++)
+        [SerializeField] private List<Operator> _operators;
+
+        public void SetOperators(List<Operators> operators)
         {
-            _operators[i].SetOperator(operators[i]);
-        }
-    }
-
-    public override void ResetState()
-    {
-        base.ResetState();
-
-        CurrentItem.Select();
-    }
-
-    public void SetDigit(int digit)
-    {
-        if (ItemsCount == 0)
-        {
-            throw new InvalidOperationException();
+            for (int i = 0; i < _operators.Count; i++)
+            {
+                _operators[i].SetOperator(operators[i]);
+            }
         }
 
-        GetItem().SetState(digit);
-
-        if (ItemsCount > 0)
+        public override void ResetState()
         {
+            base.ResetState();
+
             CurrentItem.Select();
+        }
+
+        public void SetDigit(int digit)
+        {
+            if (ItemsCount == 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            GetItem().SetState(digit);
+
+            if (ItemsCount > 0)
+            {
+                CurrentItem.Select();
+            }
         }
     }
 }

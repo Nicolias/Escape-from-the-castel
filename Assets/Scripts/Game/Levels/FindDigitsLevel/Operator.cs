@@ -1,28 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
-public class Operator : MonoBehaviour
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    [SerializeField] private Sprite _largerSprite;
-    [SerializeField] private Sprite _lessSprite;
-
-    private Image _image;
-
-    public Operators CurrentOperator;
-
-    public void SetOperator(Operators operators)
+    [RequireComponent(typeof(Image))]
+    public class Operator : MonoBehaviour
     {
-        _image ??= GetComponent<Image>();
-        CurrentOperator = operators;
+        [SerializeField] private Sprite _largerSprite;
+        [SerializeField] private Sprite _lessSprite;
 
-        if ((Operators)operators == Operators.Larger)
+        private Image _image;
+
+        public void SetOperator(Operators operators)
         {
-            _image.sprite = _largerSprite;
-        }
-        else if ((Operators)operators == Operators.Less)
-        {
-            _image.sprite = _lessSprite;
+            _image ??= GetComponent<Image>();
+
+            if (operators == Operators.Larger)
+            {
+                _image.sprite = _largerSprite;
+            }
+            else if (operators == Operators.Less)
+            {
+                _image.sprite = _lessSprite;
+            }
         }
     }
 }

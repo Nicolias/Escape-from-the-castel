@@ -1,5 +1,8 @@
-public enum Operators
+namespace Assets.Game.Levels.FindDigitsLevel
 {
-    Larger,
-    Less
+    public enum Operators
+    {
+        Larger,
+        Less
+    }
 }
