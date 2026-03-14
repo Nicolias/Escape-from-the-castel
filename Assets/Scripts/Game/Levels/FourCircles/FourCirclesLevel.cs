@@ -97,8 +97,9 @@ namespace Scripts.Levels.FourCircles
 
         private Vector2Int CalculateIntegerPosition(Vector2 worldPosition)
         {
-            int xPosition = Mathf.RoundToInt((worldPosition.x - _leftTopPoint.x) / 0.1f);
-            int yPosition = Mathf.RoundToInt((_leftTopPoint.y - worldPosition.y) / 0.1f);
+            float scale = 0.1f;
+            int xPosition = Mathf.RoundToInt((worldPosition.x - _leftTopPoint.x) / scale);
+            int yPosition = Mathf.RoundToInt((_leftTopPoint.y - worldPosition.y) / scale);
 
             return new Vector2Int(yPosition, xPosition);
         }

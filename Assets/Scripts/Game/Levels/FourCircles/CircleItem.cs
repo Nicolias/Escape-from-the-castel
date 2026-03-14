@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Levels.FourCircles
@@ -15,11 +16,11 @@ namespace Scripts.Levels.FourCircles
             _rectTransform = GetComponent<RectTransform>();
         }
 
-        public void Move(Vector2 position)
+        public IEnumerator Move(Vector2 position)
         {
-            float delay = 0.5f;
+            float duration = 0.5f;
 
-            _rectTransform.DOAnchorPos(position, delay);
+            yield return _rectTransform.DOAnchorPos(position, duration).WaitForCompletion();
         }
     }
 }
