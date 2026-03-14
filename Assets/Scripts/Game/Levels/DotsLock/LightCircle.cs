@@ -7,13 +7,13 @@ namespace Assets.Scripts.DotsLevel
     [RequireComponent(typeof(RectTransform))]
     public class LightCircle : GameCircle<TransformableLightPoint>
     {
-        private Coroutine _rotateCoroutine;
+        private Coroutine _animateCoroutine;
 
         public event Action Changed;
 
         public void Rotate()
         {
-            if (_rotateCoroutine == null)
+            if (_animateCoroutine == null)
             {
                 StartCoroutine(AnimateRoutine(RotateRoutine()));
             }
@@ -21,7 +21,7 @@ namespace Assets.Scripts.DotsLevel
 
         public void SwitchBottomItems()
         {
-            if (_rotateCoroutine == null)
+            if (_animateCoroutine == null)
             {
                 StartCoroutine(AnimateRoutine(SwitchItemsRoutine()));
             }
@@ -54,11 +54,11 @@ namespace Assets.Scripts.DotsLevel
 
         private IEnumerator AnimateRoutine(IEnumerator routine)
         {
-            _rotateCoroutine = StartCoroutine(routine);
+            _animateCoroutine = StartCoroutine(routine);
 
-            yield return _rotateCoroutine;
+            yield return _animateCoroutine;
 
-            _rotateCoroutine = null;
+            _animateCoroutine = null;
 
             ResetState();
             Changed?.Invoke();

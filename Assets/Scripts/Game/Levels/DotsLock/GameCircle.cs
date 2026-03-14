@@ -52,8 +52,9 @@ namespace Assets.Scripts.DotsLevel
         protected int GetIndexByPosition(Vector2 position)
         {
             float rotation = Quaternion.FromToRotation(RectTransform.rotation * position, Vector3.up).eulerAngles.z;
+            float degreesBetweenItems = 45f;
 
-            return Mathf.RoundToInt(rotation / 45f);
+            return Mathf.RoundToInt(rotation / degreesBetweenItems);
         }
     }
 }
