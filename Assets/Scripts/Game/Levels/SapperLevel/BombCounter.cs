@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System;
 
 namespace Scripts.Levels.SapperLevel
 {
@@ -8,6 +9,7 @@ namespace Scripts.Levels.SapperLevel
         [SerializeField] private TMP_Text _countText;
 
         private int _count;
+        private int _minValue = 0;
 
         public void Init(int bombCount) => ChangeValue(bombCount);
 
@@ -17,6 +19,11 @@ namespace Scripts.Levels.SapperLevel
 
         private void ChangeValue(int value)
         {
+            if (value < _minValue)
+            {
+                throw new ArgumentOutOfRangeException("value");
+            }
+
             _count = value;
             _countText.text = value.ToString();
         }
