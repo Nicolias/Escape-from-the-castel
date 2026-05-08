@@ -1,5 +1,13 @@
 {
-    "idSave": 19,
+    "intExample": 5,
+    "strExample": "Hello!",
+    "boolExample": [
+        false,
+        false,
+        false,
+        false
+    ],
+    "idSave": 31,
     "IsNewGame": false,
     "CurrentLevelName": "LevelSignals",
     "CiphersBestTime": 96

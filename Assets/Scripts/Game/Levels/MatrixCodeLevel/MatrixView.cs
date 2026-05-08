@@ -1,95 +1,91 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Scripts.Levels.MatrixGame
 {
-    public class MatrixView : MonoBehaviour
+    public class MatrixView : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [SerializeField] private List<MatrixItem> _items;
-        [SerializeField] private SelectionBorder _border;
+        [SerializeField] private SelectionBorder _selection;
 
-        private IEnumerable<MatrixItem> _currentItems;
-
+        private RectTransform _rectTransform;
+        private MatrixItemsGrid _matrixItemsGrid;
+        
         public event Action<Vector2Int> Interacted;
 
-
-        private void OnDisable()
+        public void Init()
         {
-            DiactivateItems(_currentItems);
-        }
+            _rectTransform = GetComponent<RectTransform>();
+            _selection.Init();
 
-        public void SetState(MatrixCode matrix)
-        {
-            DiactivateItems(_currentItems);
-
-            _border.Init();
-
-            foreach (MatrixItem matrixitem in _items)
+            foreach (MatrixItem item in _items)
             {
-                matrixitem.Init();
-
-                Vector2Int itemMatrixPosition = CalculateMatrixPosition(matrixitem.Position);
-                matrixitem.SetText(matrix.GetItem(itemMatrixPosition.y, itemMatrixPosition.x));
-                matrixitem.Clicked += OnItemClicked;
-            }
-
-            _currentItems = _items;
-        }
-
-        public void ActivateRaw(int value)
-        {
-            IEnumerable<MatrixItem> raw = _items.Where(item => CalculateMatrixPosition(item.Position).y == value);
-            ActivateItems(raw);
-
-            _border.TransformSelectionRaw(new Vector2(0.5f, raw.First().Position.y), Quaternion.Euler(0f, 0f, 90f));
-        }
-    
-        public void ActivateColumn(int value)
-        {
-            IEnumerable<MatrixItem > column = _items.Where(item => CalculateMatrixPosition(item.Position).x == value);
-            ActivateItems(column);
-
-            _border.TransformSelectionRaw(new Vector2(column.First().Position.x, -0.5f), Quaternion.Euler(0f, 0f, 0f));
-        }
-
-        private void ActivateItems(IEnumerable<MatrixItem> items)
-        {
-            DiactivateItems(_currentItems);
-            _currentItems = items;
-
-            foreach (var item in items)
-            {
+                item.Init();
                 item.Clicked += OnItemClicked;
             }
         }
 
+        public void OnDrag(PointerEventData eventData)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(_rectTransform, eventData.position, Camera.main, out Vector2 localPoint);
+
+            Vector2Int matrixPosition = _matrixItemsGrid.CalculateMatrixPosition(localPoint);
+
+            if (_matrixItemsGrid.TrySetPointerPosition(matrixPosition))
+            {
+                _selection.MovePointer(_matrixItemsGrid.AllItems[_matrixItemsGrid.PointerPosition].Position);
+            }
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (_matrixItemsGrid.SelectedPositions.Contains(_matrixItemsGrid.PointerPosition) == false)
+            {
+                Interacted?.Invoke(_matrixItemsGrid.PointerPosition);
+            }
+        }
+
+        public void SetState(MatrixCode matrix)
+        {
+            _matrixItemsGrid = new MatrixItemsGrid(_items);
+
+            foreach (Vector2Int position in _matrixItemsGrid.AllItems.Keys)
+            {
+                MatrixItem itemMatrixPosition = _matrixItemsGrid.AllItems[position];
+                itemMatrixPosition.SetText(matrix.GetItem(position.y, position.x));
+            }
+
+            ActivateRaw(0);
+        }
+
+        public void ExcludeItem(Vector2Int position)
+        {
+            _matrixItemsGrid.AllItems[position].ActivateSpan();
+            _matrixItemsGrid.SelectedPositions.Add(position);
+        }
+
+        public void ActivateRaw(int value) => ActivateMatrixItems(value, _matrixItemsGrid.ActivateRaw, _selection.SetRawState);
+
+        public void ActivateColumn(int value) => ActivateMatrixItems(value, _matrixItemsGrid.ActivateColumn, _selection.SetColumnState);
+
+        private void ActivateMatrixItems(int value, Action<int> activateTarget, Action<Vector2> activateSelectionState)
+        {
+            Vector2 position = _matrixItemsGrid.AllItems[_matrixItemsGrid.PointerPosition].Position;
+            activateTarget?.Invoke(value);
+            activateSelectionState?.Invoke(position);
+            _selection.MovePointer(position);
+        }
+
         private void OnItemClicked(MatrixItem item)
         {
-            _border.MoveTo(item.Position);
-            Interacted?.Invoke(CalculateMatrixPosition(item.Position));
-        }
+            Vector2Int position = _matrixItemsGrid.CalculateMatrixPosition(item.Position);
 
-        private void DiactivateItems(IEnumerable<MatrixItem> items)
-        {
-            if (items == null)
+            if (_matrixItemsGrid.TrySetPointerPosition(position))
             {
-                return;
+                Interacted?.Invoke(_matrixItemsGrid.PointerPosition);
             }
-
-            foreach (var item in items)
-            {
-                item.Clicked -= OnItemClicked;
-            }
-        }
-
-        private Vector2Int CalculateMatrixPosition(Vector2 position)
-        {
-            float scale = 0.25f;
-            float halfScale = 0.125f;
-
-            return new Vector2Int(Mathf.RoundToInt(Mathf.Abs((position.x - halfScale) / scale)), Mathf.RoundToInt(Mathf.Abs((position.y + halfScale) / scale)));
         }
     }
 }

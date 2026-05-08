@@ -2,10 +2,12 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Scripts.Levels.MatrixGame
 {
     [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Image))]
     public class MatrixItem : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private TMP_Text _text;
@@ -23,6 +25,8 @@ namespace Scripts.Levels.MatrixGame
         }
 
         public void SetText(string value) => _text.text = value;
+
+        public void ActivateSpan() => _text.text = "*";
 
         public void OnPointerClick(PointerEventData eventData) => Clicked?.Invoke(this);
     }

@@ -1,6 +1,6 @@
-using NaughtyAttributes;
-using Scripts.Servises;
-using TMPro;
+﻿using NaughtyAttributes;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +17,7 @@ namespace Asset.Menu
         [SerializeField, Scene] private string _firstLevel;
         [SerializeField, Scene] private string _ciphersLevel;
 
-        [SerializeField] private Locolization _locolization;
+        [SerializeField] private Animator _safeBoxAnimator;
 
         public void Awake()
         {
@@ -43,17 +43,30 @@ namespace Asset.Menu
         {
             YG2.SetDefaultSaves();
             YG2.saves.IsNewGame = false;
-            SceneManager.LoadScene(_firstLevel);
+            PlayAnimations(_firstLevel);
         }
 
         private void LoadGame()
         {
-            SceneManager.LoadScene(YG2.saves.CurrentLevelName);
+            PlayAnimations(YG2.saves.CurrentLevelName);
         }
 
         private void OpenCiphersGame()
         {
-            SceneManager.LoadScene(_ciphersLevel);
+            PlayAnimations(_ciphersLevel);
+        }
+
+        private void PlayAnimations(string sceneName)
+        {
+            _safeBoxAnimator.SetTrigger("Open Safe");
+            StartCoroutine(WaitSafe(sceneName));
+        }
+
+        private IEnumerator WaitSafe(string sceneName)
+        {
+            float openSafeAnimationTime = 3f;
+            yield return new WaitForSeconds(openSafeAnimationTime);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

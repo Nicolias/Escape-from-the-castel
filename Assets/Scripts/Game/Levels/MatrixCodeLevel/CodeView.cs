@@ -1,43 +1,48 @@
-﻿using System;
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CodeView : MonoBehaviour
+namespace Scripts.Levels.MatrixGame
 {
-    [SerializeField] private List<TMP_Text> _codeHalfs;
-    [SerializeField] private RectTransform _selection;
-
-    private Queue<TMP_Text> _textQueue;
-    private TMP_Text _selectedItem;
-
-    public void Init(IReadOnlyList<string> codeHalfs)
+    public abstract class CodeView : MonoBehaviour
     {
-        if (codeHalfs.Count != _codeHalfs.Count)
+        [SerializeField] private RectTransform _selection;
+        [SerializeField] private List<TMP_Text> _items;
+
+        private Queue<TMP_Text> _textPartsQueue;
+
+        public IReadOnlyList<TMP_Text> Items => _items;
+
+        public int Count => _textPartsQueue.Count;
+
+        public TMP_Text CurrentItem => _textPartsQueue.Peek();
+
+        protected void ResetQueueItems()
         {
-            throw new ArgumentOutOfRangeException();
+            _textPartsQueue = new Queue<TMP_Text>(_items);
+
+            MoveSelectionToPeekItem();
         }
 
-        _textQueue = new Queue<TMP_Text>();
-
-        for (int i = 0; i < codeHalfs.Count; i++)
+        protected void SelectNext()
         {
-            _codeHalfs[i].text = codeHalfs[i];
-            _textQueue.Enqueue(_codeHalfs[i]);
+            if (_textPartsQueue.Count == 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            _textPartsQueue.Dequeue();
+
+            MoveSelectionToPeekItem();
         }
 
-        Select();
-    }
-
-    public void Select()
-    {
-        if (_textQueue.Count == 0)
+        protected void MoveSelectionToPeekItem()
         {
-            return;
+            if (_textPartsQueue.Count != 0)
+            {
+                _selection.anchoredPosition = new Vector2(_textPartsQueue.Peek().rectTransform.anchoredPosition.x, _selection.anchoredPosition.y);
+            }
         }
-
-        _selection.anchoredPosition = new Vector2(_textQueue.Dequeue().rectTransform.anchoredPosition.x, _selection.anchoredPosition.y);
     }
 }
