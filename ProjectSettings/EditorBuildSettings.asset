@@ -10,10 +10,10 @@ EditorBuildSettings:
     guid: 956d0138134f505479269bda4ceb8176
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: b0094f22491aff74ebde73359e001276
+    guid: c11176ec169ba244889dabed3d57bcd8
   - enabled: 1
     path: Assets/Scenes/Levels/Test.unity
-    guid: 5a4eed8b58974c44898311b26259abf7
+    guid: 9db2eaeff9c9b2548ae25fcbe07ef420
   - enabled: 1
     path: Assets/Scenes/Cryptography.unity
     guid: de81a5c25bc70f448a98a041f9f42f43
@@ -31,7 +31,7 @@ EditorBuildSettings:
     guid: ae9e9f570402ed442964eab0c9b0ac71
   - enabled: 1
     path: Assets/Scenes/Levels/FindDigits.unity
-    guid: 1956975e3b027b24eb3397e4e9659968
+    guid: 795fafbe64adfba4382cca0f491e3594
   - enabled: 1
     path: Assets/Scenes/Levels/Charge.unity
     guid: 5e700117fec5e58479bdda9a66c7cf46

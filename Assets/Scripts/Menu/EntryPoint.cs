@@ -1,6 +1,6 @@
-﻿using NaughtyAttributes;
+﻿using DG.Tweening;
+using NaughtyAttributes;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,11 +18,12 @@ namespace Asset.Menu
         [SerializeField, Scene] private string _ciphersLevel;
 
         [SerializeField] private Animator _safeBoxAnimator;
+        [SerializeField] private Camera _camera;
 
         public void Awake()
         {
             _continueGameButton.interactable = YG2.saves.IsNewGame == false;
-            _locolization.Initialize();
+            //_locolization.Initialize();
         }
 
         private void OnEnable()
@@ -58,7 +59,7 @@ namespace Asset.Menu
 
         private void PlayAnimations(string sceneName)
         {
-            _safeBoxAnimator.SetTrigger("Open Safe");
+            _safeBoxAnimator.SetTrigger(Consts.OpenSafe);
             StartCoroutine(WaitSafe(sceneName));
         }
 
@@ -66,6 +67,9 @@ namespace Asset.Menu
         {
             float openSafeAnimationTime = 3f;
             yield return new WaitForSeconds(openSafeAnimationTime);
+            _camera.transform.DOMoveZ(0.3f, 0.8f);
+            _camera.transform.DOMoveX(-0.008f, 0.8f);
+            yield return new WaitForSeconds(0.8f);
             SceneManager.LoadScene(sceneName);
         }
     }

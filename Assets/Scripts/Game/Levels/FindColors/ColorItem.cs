@@ -22,6 +22,7 @@ namespace Assets.Scripts.FindColorsGame
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _light = GetComponent<Light>();
             Color = color;
+            _light.color = Color;
             _light.enabled = false;
         }
 
@@ -39,8 +40,9 @@ namespace Assets.Scripts.FindColorsGame
 
         public void On()
         {
+            Debug.Log(name);
+
             _spriteRenderer.material.color = Color;
-            _light.color = Color;
             _light.enabled = true;
         }
 

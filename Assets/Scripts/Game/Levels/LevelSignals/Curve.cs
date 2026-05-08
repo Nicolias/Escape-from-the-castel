@@ -7,19 +7,20 @@ namespace Assets.Scripts.LevelSignals
     [RequireComponent(typeof(Transform))]
     public class Curve : MonoBehaviour
     {
+        private const float MinHz = 3.5f;
+        private const float MaxHz = 99.75f;
+        private const float MinAmplitude = 0.010f;
+        private const float MaxAmplitude = 0.08f;
+
         [SerializeField] private int _pointsCount;
         [SerializeField] private float _pointsStep;
 
         private LineRenderer _lineRenderer;
         private Transform _transform;
-        private float _minHz = 10f;
-        private float _maxHz = 35f;
-        private float _minAmplitude = 0.03f;
-        private float _maxAmplitude = 0.2f;
 
-        [field: SerializeField, Range(10f, 35f)] public float Hz { get; private set; }
+        [field: SerializeField, Range(MinHz, MaxHz)] public float Hz { get; private set; }
 
-        [field: SerializeField, Range(0.03f, 0.2f)] public float Amplitude { get; private set; }
+        [field: SerializeField, Range(MinAmplitude, MaxAmplitude)] public float Amplitude { get; private set; }
 
         public void Init()
         {
@@ -34,14 +35,14 @@ namespace Assets.Scripts.LevelSignals
 
         public void SetAmplitude(float percent)
         {
-            Amplitude = _minAmplitude + (_maxAmplitude - _minAmplitude) * percent;
+            Amplitude = MinAmplitude + (MaxAmplitude - MinAmplitude) * percent;
 
             UpdateState();
         }
 
         public void SetHz(float percent)
         {
-            Hz = _minHz + (_maxHz - _minHz) * percent;
+            Hz = MinHz + (MaxHz - MinHz) * percent;
 
             UpdateState();
         }

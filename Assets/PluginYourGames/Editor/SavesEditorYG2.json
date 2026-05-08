@@ -1,14 +1,6 @@
 {
-    "intExample": 5,
-    "strExample": "Hello!",
-    "boolExample": [
-        false,
-        false,
-        false,
-        false
-    ],
-    "idSave": 31,
+    "idSave": 70,
     "IsNewGame": false,
-    "CurrentLevelName": "LevelSignals",
-    "CiphersBestTime": 96
+    "CurrentLevelName": "Test",
+    "CiphersBestTime": 0
 }

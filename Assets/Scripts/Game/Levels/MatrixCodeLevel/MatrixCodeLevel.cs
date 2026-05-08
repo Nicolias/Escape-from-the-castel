@@ -14,7 +14,7 @@ namespace Scripts.Levels.MatrixGame
         private CodeValidator _codeValidator;
         private IEnumerator<Action<Vector2Int>> _actions;
 
-        public override event Action Complet;
+        public override event Action Complete;
 
         public override void Init()
         {
@@ -47,7 +47,7 @@ namespace Scripts.Levels.MatrixGame
             _matrixView.ActivateRaw(0);
         }
 
-        private void OnPassed() => Complet?.Invoke();
+        private void OnPassed() => Complete?.Invoke();
 
         private void OnInteracted(Vector2Int position)
         {

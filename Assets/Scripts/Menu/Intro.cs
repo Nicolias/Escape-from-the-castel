@@ -27,12 +27,14 @@ namespace Asset.Menu
 
         private void ShowIntro()
         {
-            _cameraAnimator.SetTrigger("Start Level");
-            _nameAnimator.SetTrigger("Start Level");
+            _cameraAnimator.SetTrigger(Consts.StartLevel);
+            _nameAnimator.SetTrigger(Consts.StartLevel);
 
             Sequence sequence = DOTween.Sequence();
 
-            sequence.Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce);
+            sequence
+                .Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce)
+                .AppendCallback(() => _cameraAnimator.enabled = false);
 
             sequence.Play();
         }

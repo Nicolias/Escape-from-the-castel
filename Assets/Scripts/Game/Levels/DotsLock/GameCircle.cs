@@ -42,16 +42,19 @@ namespace Assets.Scripts.DotsLevel
 
         protected virtual void ResetState()
         {
+            Debug.Log(" ");
             foreach (T point in _points)
             {
-                int index = GetIndexByPosition(point.AnchoredPosition);
+                int index = GetIndexByPosition(point);
                 _pointsState[index] = point;
             }
         }
 
-        protected int GetIndexByPosition(Vector2 position)
+        protected int GetIndexByPosition(T position)
         {
-            float rotation = Quaternion.FromToRotation(RectTransform.rotation * position, Vector3.up).eulerAngles.z;
+            float rotation = Quaternion.FromToRotation(RectTransform.rotation * position.AnchoredPosition, Vector3.up).eulerAngles.z;
+
+            Debug.Log(position.name + " " + RectTransform.rotation + " " + rotation + " " + Mathf.RoundToInt(rotation / 45f));
 
             return Mathf.RoundToInt(rotation / 45f);
         }
