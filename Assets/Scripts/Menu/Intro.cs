@@ -14,10 +14,14 @@ namespace Asset.Menu
         [SerializeField] private Animator _cameraAnimator;
         [SerializeField] private Animator _nameAnimator;
 
+        [SerializeField] private Image _playButtonBackground;
+
+        private Tweener _yoYoText;
+
         private void OnEnable()
         {
             _playButton.onClick.AddListener(ShowIntro);
-            _text.DOFade(0.3f, 0.8f).SetLoops(-1, LoopType.Yoyo);
+            _yoYoText = _text.DOFade(0.3f, 0.8f).SetLoops(-1, LoopType.Yoyo);
         }
 
         private void OnDisable()
@@ -27,12 +31,18 @@ namespace Asset.Menu
 
         private void ShowIntro()
         {
+            _yoYoText.Kill();
+
             _cameraAnimator.SetTrigger(Consts.StartLevel);
             _nameAnimator.SetTrigger(Consts.StartLevel);
+
+            _playButtonBackground.DOFade(0, 1);
+            _text.DOFade(0, 1).SetLoops(0);
 
             Sequence sequence = DOTween.Sequence();
 
             sequence
+                .AppendInterval(1)
                 .Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce)
                 .AppendCallback(() => _cameraAnimator.enabled = false);
 

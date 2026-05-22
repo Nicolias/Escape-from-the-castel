@@ -1,30 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CatRandomizer : MonoBehaviour
 {
-    private const float Delay = 2f;
+    [SerializeField] private List<Animator> _controller = new List<Animator>(3);
 
-    [SerializeField] private Animator _controller;
-    [SerializeField] private string _parametrName;
+    private bool _isNeedRandomize = true;
+    private float _passTime = 0;
 
-    private bool _isNeedRandomize = false;
-    private float _passTime;
+    private int _currentControllerIntex = 0;
 
     private void FixedUpdate()
     {
-        if (Time.time < _passTime)
-            return;
+        _passTime -= Time.fixedDeltaTime;
 
-        if (_controller.GetCurrentAnimatorClipInfoCount(0) == 0)
-        {
+        if (_passTime <= 0)
             _isNeedRandomize = true;
-            _passTime = Time.time + Delay;
-        }
 
         if (_isNeedRandomize)
         {
-            _controller.SetInteger(_parametrName, Random.Range(1,4));
+            _controller[_currentControllerIntex].gameObject.SetActive(false);
+            _currentControllerIntex = Random.Range(1, 3);
+            _controller[_currentControllerIntex].gameObject.SetActive(true);
+            _passTime = _controller[_currentControllerIntex].GetCurrentAnimatorStateInfo(0).length;
             _isNeedRandomize = false;
+
+            Debug.Log(_passTime);
         }
     }
 }

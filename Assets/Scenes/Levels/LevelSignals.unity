@@ -1314,7 +1314,7 @@ MonoBehaviour:
   _playerCurve: {fileID: 576504132}
   _hzTumbler: {fileID: 705586134}
   _amplitudeTumbler: {fileID: 521186663}
-  _hzToleranceValue: 0.2
+  _hzToleranceValue: 0.35
   _amplitudeToleranceValue: 0.01
 --- !u!1 &1639316884
 GameObject:

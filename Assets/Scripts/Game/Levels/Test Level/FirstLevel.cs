@@ -18,6 +18,7 @@ namespace Assets.Game.Levels
         public override void Init()
         {
             _endLevelButton.onClick.AddListener(CompleteLevel);
+            Debug.Log("Fafa");
         }
 
         private void CompleteLevel()
