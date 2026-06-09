@@ -1366,7 +1366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1067166476114295974
 Transform:
   m_ObjectHideFlags: 0
@@ -3291,10 +3291,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3955243303318560070}
   - component: {fileID: 2555469041269079553}
-  - component: {fileID: 2257628629187390023}
   - component: {fileID: 5213051624742267945}
   - component: {fileID: 742339653877508007}
   - component: {fileID: 7425158297417344653}
+  - component: {fileID: 6902209710155145455}
   m_Layer: 0
   m_Name: camera
   m_TagString: Untagged
@@ -3310,13 +3310,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6826453856746489978}
   serializedVersion: 2
-  m_LocalRotation: {x: 6.1232336e-17, y: -1, z: -6.617446e-24, w: 0.00000005960465}
-  m_LocalPosition: {x: 0, y: 1.27, z: 1.54}
+  m_LocalRotation: {x: 0, y: -0.9824637, z: -1.776357e-13, w: -0.18645413}
+  m_LocalPosition: {x: -0.56604004, y: 1.2797401, z: 1.4373214}
   m_LocalScale: {x: 100, y: 100.000015, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6590843854996007757}
-  m_LocalEulerAnglesHint: {x: -1.546141e-11, y: 158.50815, z: 3.410605e-13}
+  m_LocalEulerAnglesHint: {x: -3.400749e-22, y: -179.99998, z: -7.0167083e-15}
 --- !u!20 &2555469041269079553
 Camera:
   m_ObjectHideFlags: 0
@@ -3335,7 +3335,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 10
+  m_FocalLength: 34
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -3350,7 +3350,7 @@ Camera:
     height: 1
   near clip plane: 0.099999994
   far clip plane: 1000
-  field of view: 100.388855
+  field of view: 38.88007
   orthographic: 0
   orthographic size: 0.0036993094
   m_Depth: 0
@@ -3368,27 +3368,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!95 &2257628629187390023
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6826453856746489978}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f316ebf0a50faf241b9611011ebb0dc0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!81 &5213051624742267945
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3410,9 +3389,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentSceneName: Charge
-  _level: {fileID: 0}
+  _safeBoxAnimator: {fileID: 0}
   _ender: {fileID: 7425158297417344653}
-  _cameraAnimator: {fileID: 2257628629187390023}
   _canvas: {fileID: 0}
 --- !u!114 &7425158297417344653
 MonoBehaviour:
@@ -3427,10 +3405,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _safeBoxAnimator: {fileID: 6113570616164852971}
-  _openDoorDuration: 2.5
+  _closeDoorDuration: 0
   _canvas: {fileID: 0}
-  _camera: {fileID: 6826453856746489978}
-  _nextScene: FourCircles
+--- !u!114 &6902209710155145455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6826453856746489978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3209f513cc28644680a4531e02bdeaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entryPoint: {fileID: 742339653877508007}
+  _levelEnder: {fileID: 7425158297417344653}
+  _levels: []
+  _menuScene: Initalize
 --- !u!1 &6914339089569982510
 GameObject:
   m_ObjectHideFlags: 0

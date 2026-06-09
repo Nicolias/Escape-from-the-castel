@@ -8,15 +8,22 @@ using UnityEngine.UI;
 namespace Scripts.Levels.SapperLevel
 {
     [RequireComponent(typeof(RectTransform))]
-    public class CellView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class CellView : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _span;
         [SerializeField] private Image _bomb;
         [SerializeField] private Image _mark;
 
-        private RectTransform _rectTransform = null;
+        [SerializeField] private float _doubleClickThreshold = 0.3f;
+        [SerializeField] private float _holdThreshold = 0.5f;
+
+        private float _lastDownTime;
+        private int _clickCount = 0;
+
         private bool _isPressed;
+
+        private RectTransform _rectTransform = null;
 
         public event Action<CellView> Clicked;
 
@@ -36,20 +43,11 @@ namespace Scripts.Levels.SapperLevel
             Hide();
         }
 
-        public void OnPointerUp(PointerEventData eventData) => _isPressed = false;
-
         public void SetMarkState(bool enable) => _mark.enabled = enable;
 
         public void Show() => _span.enabled = false;
 
         public void Hide() => _span.enabled = true;
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            _isPressed = true;
-
-            StartCoroutine(GetInputRoutine());
-        }
 
         public void SetBombState()
         {
@@ -66,25 +64,53 @@ namespace Scripts.Levels.SapperLevel
             _mark.enabled = false;
         }
 
-        private IEnumerator GetInputRoutine()
+        public void OnPointerClick(PointerEventData eventData)
         {
-            float clickTimer = 0f;
-            float timeLimit = 0.3f;
+            if (_isPressed)
+                return;
 
-            while (_isPressed == true && clickTimer < timeLimit)
-            {
-                clickTimer += Time.deltaTime;
-                 yield return null;
-            }
+            _clickCount++;
 
-            if (clickTimer < timeLimit)
+            if (_clickCount == 2)
             {
-                Clicked?.Invoke(this);
+                Pressed?.Invoke(this);
+                Reset();
             }
             else
             {
+                Invoke(nameof(OneClickIfNoSecond), _doubleClickThreshold);
+            }
+        }
+
+        private void OneClickIfNoSecond()
+        {
+            if (_clickCount == 1)
+                Clicked?.Invoke(this);
+
+            Reset();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _lastDownTime = Time.unscaledTime;
+            _isPressed = false;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            float duration = Time.unscaledTime - _lastDownTime;
+
+            if (duration >= _holdThreshold)
+            {
+                _isPressed = true;
                 Pressed?.Invoke(this);
             }
+        }
+
+        private void Reset()
+        {
+            _clickCount = 0;
+            CancelInvoke(nameof(OneClickIfNoSecond));
         }
     }
 }

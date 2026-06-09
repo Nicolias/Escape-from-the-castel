@@ -10,9 +10,13 @@ namespace Asset.Menu
 {
     public class EntryPoint : MonoBehaviour
     {
+        [SerializeField] private GameObject _buttons;
+        [SerializeField] private Intro _intro;
+
         [SerializeField] private Button _newGameButton;
         [SerializeField] private Button _continueGameButton;
         [SerializeField] private Button _ciphersGameButton;
+        [SerializeField] private Button _leaderboardButton;
 
         [SerializeField, Scene] private string _firstLevel;
         [SerializeField, Scene] private string _ciphersLevel;
@@ -20,9 +24,12 @@ namespace Asset.Menu
         [SerializeField] private Animator _safeBoxAnimator;
         [SerializeField] private Camera _camera;
 
+        [SerializeField] private Leaderboard _leaderboard;
+
         public void Awake()
         {
             _continueGameButton.interactable = YG2.saves.IsNewGame == false;
+            _leaderboard.Initialize();
             //_locolization.Initialize();
         }
 
@@ -31,6 +38,7 @@ namespace Asset.Menu
             _continueGameButton.onClick.AddListener(LoadGame);
             _newGameButton.onClick.AddListener(NewGame);
             _ciphersGameButton.onClick.AddListener(OpenCiphersGame);
+            _leaderboardButton.onClick.AddListener(OpenLeaderboard);
         }
 
         private void OnDisable()
@@ -38,6 +46,7 @@ namespace Asset.Menu
             _continueGameButton.onClick.RemoveListener(LoadGame);
             _newGameButton.onClick.RemoveListener(NewGame);
             _ciphersGameButton.onClick.RemoveListener(OpenCiphersGame);
+            _leaderboardButton.onClick.RemoveListener(OpenLeaderboard);
         }
 
         private void NewGame()
@@ -57,20 +66,23 @@ namespace Asset.Menu
             PlayAnimations(_ciphersLevel);
         }
 
-        private void PlayAnimations(string sceneName)
+        private void OpenLeaderboard()
         {
-            _safeBoxAnimator.SetTrigger(Consts.OpenSafe);
-            StartCoroutine(WaitSafe(sceneName));
+            _leaderboard.Open();
         }
 
-        private IEnumerator WaitSafe(string sceneName)
+        private void PlayAnimations(string sceneName)
         {
-            float openSafeAnimationTime = 3f;
-            yield return new WaitForSeconds(openSafeAnimationTime);
-            _camera.transform.DOMoveZ(0.3f, 0.8f);
-            _camera.transform.DOMoveX(-0.008f, 0.8f);
-            yield return new WaitForSeconds(0.8f);
-            SceneManager.LoadScene(sceneName);
+            _intro.Kill();
+
+            Sequence sequence = DOTween.Sequence();
+
+            sequence
+                .Append(_buttons.transform.DOMoveX(0.8f, 1.5f))
+                .AppendInterval(1.5f)
+                .AppendCallback(() => SceneManager.LoadScene(sceneName));
+            sequence.Play();
+            
         }
     }
 }
