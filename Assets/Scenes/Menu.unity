@@ -178,11 +178,6 @@ MonoBehaviour:
   - Language: Turkish
     Text: "\u015Eifre"
     Object: {fileID: 0}
---- !u!1 &218650055 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1941317633143749950, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-  m_PrefabInstance: {fileID: 1592914823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &322757695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +508,7 @@ Transform:
   - {fileID: 861053811}
   - {fileID: 171393503}
   - {fileID: 329054453}
+  - {fileID: 1035375623}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984071006
@@ -570,6 +566,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Oynatmak i\xE7in dokunun"
     Object: {fileID: 0}
+--- !u!1 &1035375622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035375623}
+  - component: {fileID: 1035375624}
+  m_Layer: 0
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035375623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035375622}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 976570104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035375624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035375622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Menu
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041C\u0435\u043D\u044E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Men\xFC"
+    Object: {fileID: 0}
 --- !u!1001 &1394363849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -581,6 +632,14 @@ PrefabInstance:
     - target: {fileID: 1308659420972441364, guid: 55594910555c6d74e84f3906c235609c, type: 3}
       propertyPath: m_Name
       value: Menu Panel Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308659420972441364, guid: 55594910555c6d74e84f3906c235609c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481633148569964896, guid: 55594910555c6d74e84f3906c235609c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.7020569
       objectReference: {fileID: 0}
     - target: {fileID: 8846577486170159419, guid: 55594910555c6d74e84f3906c235609c, type: 3}
       propertyPath: m_Pivot.x
@@ -675,82 +734,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1044204038860922885, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044204038860922885, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044204038860922885, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1044204038860922885, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762490368545555469, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762490368545555469, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762490368545555469, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1762490368545555469, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1947451838896152996, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2041011148487228800, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2041011148487228800, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2041011148487228800, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2041011148487228800, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2574584238146041840, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: _intro
-      value: 
-      objectReference: {fileID: 1633049568}
-    - target: {fileID: 2574584238146041840, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: _buttons
-      value: 
-      objectReference: {fileID: 218650055}
-    - target: {fileID: 3555344191405210932, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3555344191405210932, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3555344191405210932, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3555344191405210932, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4847627037391712288, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -795,38 +778,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Level
       objectReference: {fileID: 0}
-    - target: {fileID: 7931921545089334538, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7931921545089334538, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7931921545089334538, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7931921545089334538, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
---- !u!114 &1633049568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6853608469412234083, guid: cb1e493c879301a49a502fa00f3747e6, type: 3}
-  m_PrefabInstance: {fileID: 1592914823}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48947b1c6e57f443ae41e6c0a9eff6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1649927436
 PrefabInstance:
   m_ObjectHideFlags: 0

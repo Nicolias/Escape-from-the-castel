@@ -5,12 +5,13 @@ namespace Assets.Scripts.LevelSignals
 {
     public class LevelSignals : Level
     {
+        private readonly float HzToleranceValue = 2f;
+        private float AmplitudeToleranceValue = 0.009f;
+
         [SerializeField] private Curve _targetCurve;
         [SerializeField] private Curve _playerCurve;
         [SerializeField] private HzCurveTumbler _hzTumbler;
         [SerializeField] private AmplitudeCurveTumbler _amplitudeTumbler;
-        [SerializeField] private float _hzToleranceValue;
-        [SerializeField] private float _amplitudeToleranceValue;
 
         public override event Action Complete;
 
@@ -32,9 +33,9 @@ namespace Assets.Scripts.LevelSignals
 
         private void CheckComplete()
         {
-            if (Mathf.Abs(_targetCurve.Hz - _playerCurve.Hz) <= _hzToleranceValue)
+            if (Mathf.Abs(_targetCurve.Hz - _playerCurve.Hz) <= HzToleranceValue)
             {
-                if (Mathf.Abs(_targetCurve.Amplitude - _playerCurve.Amplitude) <= _amplitudeToleranceValue)
+                if (Mathf.Abs(_targetCurve.Amplitude - _playerCurve.Amplitude) <= AmplitudeToleranceValue)
                 {
                     Complete?.Invoke();
                 }

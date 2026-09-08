@@ -12,6 +12,7 @@ namespace Asset.Menu
         [SerializeField] private GameObject _canvas;
 
         [SerializeField] private Animator _cameraAnimator;
+        [SerializeField] private Animator _camera1Animator;
 
         [SerializeField] private Image _playButtonBackground;
 
@@ -38,17 +39,28 @@ namespace Asset.Menu
         {
             _yoYoText.Kill();
 
-            _cameraAnimator.SetTrigger(Consts.StartLevel);
+            if (_cameraAnimator.gameObject.activeSelf)
+                _cameraAnimator.SetTrigger(Consts.StartLevel);
+
+            if (_camera1Animator.gameObject.activeSelf)
+                _camera1Animator.SetTrigger(Consts.StartLevel);
 
             _playButtonBackground.DOFade(0, 1);
             _text.DOFade(0, 1).SetLoops(0);
 
             _buttonSequence = DOTween.Sequence();
 
-            _buttonSequence
-                .AppendInterval(1)
-                .Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce)
-                .AppendCallback(() => _cameraAnimator.enabled = false);
+            if (_cameraAnimator.gameObject.activeSelf)
+                _buttonSequence
+                    .AppendInterval(1)
+                    .Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce)
+                    .AppendCallback(() => _cameraAnimator.enabled = false);
+
+            if (_camera1Animator.gameObject.activeSelf)
+                _buttonSequence
+                    .AppendInterval(1)
+                    .Append(_canvas.transform.DOMoveX(-0.35f, 3.5f)).SetEase(Ease.OutBounce)
+                    .AppendCallback(() => _camera1Animator.enabled = false);
 
             _buttonSequence.Play();
         }

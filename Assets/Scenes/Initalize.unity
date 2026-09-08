@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf943cc4a690f724b966f35007f06ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicClip: {fileID: 8300000, guid: ffaa59cb8187e164aadf8f4b4733d18c, type: 3}
+  _musicClip: {fileID: 8300000, guid: 1ca7e12e5905a7e4fa76254b87a2e1a9, type: 3}
 --- !u!82 &1131470208
 AudioSource:
   m_ObjectHideFlags: 0
